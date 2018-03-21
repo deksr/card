@@ -82,30 +82,22 @@
 
 
 
-  .attach-cards-div{
-/*	 	background-color: red;*/	 	
+/*  .attach-cards-div{
     height: 300px;
 	 	width: 100%;
 	 	margin: auto;
 	 	text-align: center;
 
-	}
+	}*/
 
 
 
-  .square-card-style {
-    padding: 25px;
+/*  .square-card-style {
     height:270px;
     width: 270px;
     background-color: coral;    
     color: white;
-    box-sizing: border-box;
-    border: 1px solid #DCDCDC;
-    display:inline-block;
-    margin: 20px;
     cursor: pointer;
-
-
   }
 
 
@@ -113,22 +105,95 @@
 
 
   .border-radius-card-style {
-    padding: 25px;
     height:270px;
+    width: 270px;
+    background-color: green;    
+    color: white;
+    cursor: pointer;
+  }*/
+
+  /********adding shapes to the boxes********/ 
+
+#squareMainID{
+
+  height:270px;
     width: 270px;
     background-color: coral;    
     color: white;
-    box-sizing: border-box;
-    border: 1px solid #DCDCDC;
-    border-radius: 25px;
-    display:inline-block;
-    margin: 60px;
+    cursor: pointer;
+
+}
+
+#roundMainID{
+
+  height:270px;
+    width: 270px;
+    background-color: green;    
+    color: white;
+    cursor: pointer;
+    border-radius: 45px;
+
+}
+
+
+
+
+  /********class get attached on click********/ 
+
+
+
+  .back{
+    background-color: yellow;
+    width: 270px; 
+    height: 270px; 
+    cursor: pointer;
+
+  }
+
+  .front{
+    background-color: orange;
+    width: 270px; 
+    height: 270px; 
     cursor: pointer;
   }
 
 
+  .classA { 
+    perspective: 1000px; 
+  }
 
 
 
+  .classA:hover .classB {
+    transform: rotateY(-180deg);
+  }
 
-}
+
+  .classA, .front, .back {
+    width: 270px; height: 270px; 
+  } 
+
+
+  .classB {
+    transition: 0.6s; 
+    transform-style: preserve-3d; 
+    position: relative;
+  }
+
+
+  .front, .back { 
+    backface-visibility: hidden; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+  } 
+
+  .front{ 
+    z-index: 10; 
+    transform: rotateY(0deg);
+  } 
+
+  .back { 
+    transform: rotateY(-180deg);
+  }
+
