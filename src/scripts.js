@@ -158,13 +158,11 @@ console.log("scripts attached");
 				if(event.target.parentNode.parentNode.parentNode === squareClick){
 					console.log("squareMain clicked")
 					roundMainDiv.remove();
-					// rotateButton();
 					cardLayout()	
 				}
 				if(event.target.parentNode.parentNode.parentNode === roundClick){
 					console.log("roundMain clicked");
 					squareMainDiv.remove();
-					// rotateButton()
 					cardLayout()
 				}
 
