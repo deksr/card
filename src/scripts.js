@@ -8,45 +8,81 @@ console.log("scripts attached");
 
 
 
+           // ***********************
 
-  var attachCardsDiv = document.createElement("div");//not using this ????
+  var attachCardsDiv = document.createElement("div");
 	attachCardsDiv.className += "attach-cards-div"// main div don't touch
 
+	var squareMainDiv = document.createElement("div");
+  squareMainDiv.className = "cardsPanel";
+  squareMainDiv.setAttribute("id", "squareMainID"); 
 
 
-		var squareMainDiv = document.createElement("div");
-    squareMainDiv.className = "cardsPanel";//keep this while adding cards to dom
-    squareMainDiv.setAttribute("id", "squareMainID"); // add this in the begining
+	var classADiv = document.createElement("div");
+	// classADiv.className += "apple" //add this when rotate is clicked
+	classADiv.setAttribute("class", "fourPack classA"); 
+  classADiv.setAttribute("id", "fourA"); 
 
 
-    var roundMainDiv = document.createElement("div");
-    roundMainDiv.className = "cardsPanel"; //keep this while adding cards to dom
-    roundMainDiv.setAttribute("id", "roundMainID"); // add this in the begining
+	var classBDiv = document.createElement("div");
+	// classBDiv.className += "apple" // add this when rotate is clicked
+	classBDiv.setAttribute("class", "fourPack classB"); 
+	classBDiv.setAttribute("id", "fourB"); 
 
 
-
-
-				var classADiv = document.createElement("div");
-				// classADiv.className += "classA" //add this when rotate is clicked
-
-		    var classBDiv = document.createElement("div");
-				// classBDiv.className += "classB" // add this when rotate is clicked
-
+	var cardFrontDiv = document.createElement("div");
+	// cardFrontDiv.className += "apple"  // add this when rotate is clicked
+	cardFrontDiv.setAttribute("class", "fourPack front");
+	cardFrontDiv.setAttribute("id", "fourC"); 
 
 
 
-				    var cardFrontDiv = document.createElement("div");
-					  // cardFrontDiv.className += "front"  // add this when rotate is clicked
+	var cardBackDiv = document.createElement("div");
+	// cardBackDiv.className += "apple"  // add this when rotate is clicked
+	cardBackDiv.setAttribute("class", "fourPack back");
+	cardBackDiv.setAttribute("id", "fourD");
 
-				    var cardBackDiv = document.createElement("div");
-						// cardBackDiv.className += "back"  // add this when rotate is clicked
+
+	         // ***********************
 
 
+  var roundMainDiv = document.createElement("div");
+  roundMainDiv.className = "cardsPanel"; 
+  roundMainDiv.setAttribute("id", "roundMainID"); 
+
+
+  var classADiv2 = document.createElement("div");
+	// classADiv.className += "apple" //add this when rotate is clicked
+	classADiv2.setAttribute("class", "fourPack classA"); 
+  classADiv2.setAttribute("id", "fourA"); 
+
+
+
+	var classBDiv2 = document.createElement("div");
+	// classBDiv.className += "apple" // add this when rotate is clicked
+	classBDiv2.setAttribute("class", "fourPack classB"); 
+	classBDiv2.setAttribute("id", "fourB"); 
+
+
+	var cardFrontDiv2 = document.createElement("div");
+	// cardFrontDiv.className += "apple"  // add this when rotate is clicked
+	cardFrontDiv2.setAttribute("class", "fourPack front2"); 
+	cardFrontDiv2.setAttribute("id", "fourC"); 
+
+
+
+	var cardBackDiv2 = document.createElement("div");
+	// cardBackDiv.className += "apple"  // add this when rotate is clicked
+	cardBackDiv2.setAttribute("class", "fourPack back2");
+	cardBackDiv2.setAttribute("id", "fourD");
 
 
 
 
 // **************************functions******************************
+
+
+
 
 
   function disableButton(){
@@ -56,56 +92,48 @@ console.log("scripts attached");
 
 
 
+
+
+
   function attachTwoCardsOnDom(){
  
-        classBDiv.appendChild(cardBackDiv);
-			  classBDiv.appendChild(cardFrontDiv);
-			  classADiv.appendChild(classBDiv)
-			  squareMainDiv.appendChild(classADiv).addEventListener('click', function(event){
-			    console.log("clicked");
-		    });
-			  attachCardsDiv.appendChild(squareMainDiv);
-			  document.body.appendChild(attachCardsDiv);
-
-
-        // ************************************************************
-
-
-       classBDiv.appendChild(cardBackDiv);
-			  classBDiv.appendChild(cardFrontDiv);
-			  classADiv.appendChild(classBDiv)
-			  roundMainDiv.appendChild(classADiv).addEventListener('click', function(event){
-			    console.log("clicked");
-		    });
-			  attachCardsDiv.appendChild(roundMainDiv);
-			  document.body.appendChild(attachCardsDiv);
-
-	}
-
-
-	function flipStyle(){ //adds flip css style to dom
-		var styleSheet = document.createElement('style');
-	  styleSheet.innerHTML = "body{background-color: blue}";
-	  document.body.appendChild(styleSheet);	     
-  }
-
-
-
-
-
-	function rotateButton(){ //this function goes inside removeCardFromDom function
-		var createrotatebutton = document.createElement("button");
-		var buttonText = document.createTextNode("Rotate");
-		createrotatebutton.classList.add("rotate-button-class");
-		createrotatebutton.appendChild(buttonText);
-		attachCardsDiv.appendChild(createrotatebutton)
+    classBDiv.appendChild(cardBackDiv);
+		classBDiv.appendChild(cardFrontDiv);
+		classADiv.appendChild(classBDiv)
+		squareMainDiv.appendChild(classADiv).addEventListener('click', function(event){
+			console.log("clicked");
+		});
+		attachCardsDiv.appendChild(squareMainDiv);
 		document.body.appendChild(attachCardsDiv);
 
-		createrotatebutton.addEventListener('click', function(event){
-		  console.log("hello rotate button clicked");
-		  flipStyle();
-		})
+    // ************************************************************
+
+    classBDiv2.appendChild(cardBackDiv2);
+		classBDiv2.appendChild(cardFrontDiv2);
+	  classADiv2.appendChild(classBDiv2)
+		roundMainDiv.appendChild(classADiv2).addEventListener('click', function(event){
+		  console.log("clicked");
+		});
+		attachCardsDiv.appendChild(roundMainDiv);
+		document.body.appendChild(attachCardsDiv);
+
 	}
+
+
+
+
+
+	
+
+	function cardLayout(){
+		console.log("hello");
+		var inputTag = document.createElement("INPUT");
+    inputTag.setAttribute("type", "text" ,"autofocus");
+    inputTag.setAttribute("value", "your name");
+    document.body.appendChild(inputTag);
+	}
+
+
 
 
 
@@ -122,18 +150,24 @@ console.log("scripts attached");
 
 			  var squareClick =  document.getElementById("squareMainID");
 				var roundClick =  document.getElementById("roundMainID");
+
 				console.log(squareClick, roundClick)
-				console.log(event.target)
-				if(event.target === squareClick){
+				console.log(event.target)////
+				console.log(event.target.parentNode.parentNode.parentNode)
+
+				if(event.target.parentNode.parentNode.parentNode === squareClick){
 					console.log("squareMain clicked")
 					roundMainDiv.remove();
-					rotateButton()	
+					// rotateButton();
+					cardLayout()	
 				}
-				if(event.target === roundClick){
+				if(event.target.parentNode.parentNode.parentNode === roundClick){
 					console.log("roundMain clicked");
 					squareMainDiv.remove();
-					rotateButton()
+					// rotateButton()
+					cardLayout()
 				}
+
 			});
   	};
   } 
@@ -147,7 +181,10 @@ console.log("scripts attached");
 
 // **************************main recipe******************************
 
-	for (var i = 0; i < buttonsClass.length; i++) {
+
+
+
+	  	for (var i = 0; i < buttonsClass.length; i++) {
 
 	  	buttonsClass[i].addEventListener('click', function(event){		
 				
@@ -167,11 +204,6 @@ console.log("scripts attached");
 						// detectClassOnDom();//detecting
 						removeCardFromDom();//this runs along with 
 
-
-
-
-
-
 					}
 				}
 
@@ -182,11 +214,4 @@ console.log("scripts attached");
 
 
 
-  
 
-
-
-	// function detectClassOnDom(){
-	// 	var picksquaretag= document.querySelectorAll(".roundMainID"); ////roundmain id or div check?????????????
-	// 	console.log(picksquaretag)
-	// }
