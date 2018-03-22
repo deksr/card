@@ -131,7 +131,17 @@ console.log("scripts attached");
 		var inputTag = document.createElement("INPUT");
     inputTag.setAttribute("type", "text" ,"autofocus");
     inputTag.setAttribute("value", "your name");
-    cardBackDiv.appendChild(inputTag);
+
+    var createrotatebutton = document.createElement("button");
+ 		var buttonText = document.createTextNode("Rotate");	 		
+ 		createrotatebutton.classList.add("rotate-button-class");
+
+ 		createrotatebutton.appendChild(buttonText);
+ 		cardBackDiv.appendChild(inputTag);//text 
+ 		cardBackDiv.appendChild(createrotatebutton);//button
+
+
+
     classBDiv.appendChild(cardBackDiv)
     classADiv.appendChild(classBDiv)
     squareMainDiv.appendChild(classADiv);
@@ -140,17 +150,34 @@ console.log("scripts attached");
 
 	}
 
+
+
 	function roundCardLayout(){
 		var inputTag = document.createElement("INPUT");
     inputTag.setAttribute("type", "text" ,"autofocus");
     inputTag.setAttribute("value", "your name");
-		cardBackDiv2.appendChild(inputTag);
+
+    var createrotatebutton = document.createElement("button");
+ 		var buttonText = document.createTextNode("Rotate");	 		
+ 		createrotatebutton.classList.add("rotate-button-class");
+
+ 		createrotatebutton.appendChild(buttonText);
+ 		cardBackDiv2.appendChild(inputTag);//text 
+ 		cardBackDiv2.appendChild(createrotatebutton);//button
+
+
     classBDiv2.appendChild(cardBackDiv2)
     classADiv2.appendChild(classBDiv2)
     roundMainDiv.appendChild(classADiv2);
     attachCardsDiv.appendChild(roundMainDiv)
     document.body.appendChild(attachCardsDiv);
+
+    // add a button
+
 	}
+
+
+
 
 
 
