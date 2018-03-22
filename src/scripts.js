@@ -8,7 +8,7 @@ console.log("scripts attached");
 
 
 
-           // ***********************
+           // *********squaremain**************
 
   var attachCardsDiv = document.createElement("div");
 	attachCardsDiv.className += "attach-cards-div"// main div don't touch
@@ -30,20 +30,20 @@ console.log("scripts attached");
 	classBDiv.setAttribute("id", "fourB"); 
 
 
-	var cardFrontDiv = document.createElement("div");
+	var cardFrontDiv = document.createElement("div");//class .front is orange color
 	// cardFrontDiv.className += "apple"  // add this when rotate is clicked
 	cardFrontDiv.setAttribute("class", "fourPack front");
 	cardFrontDiv.setAttribute("id", "fourC"); 
 
 
 
-	var cardBackDiv = document.createElement("div");
+	var cardBackDiv = document.createElement("div");//class .back is yellow color
 	// cardBackDiv.className += "apple"  // add this when rotate is clicked
 	cardBackDiv.setAttribute("class", "fourPack back");
 	cardBackDiv.setAttribute("id", "fourD");
 
 
-	         // ***********************
+	         // *********roundmain**************
 
 
   var roundMainDiv = document.createElement("div");
@@ -125,12 +125,31 @@ console.log("scripts attached");
 
 	
 
-	function cardLayout(){
+	function squareCardLayout() {
+
 		console.log("hello");
 		var inputTag = document.createElement("INPUT");
     inputTag.setAttribute("type", "text" ,"autofocus");
     inputTag.setAttribute("value", "your name");
-    document.body.appendChild(inputTag);
+    cardBackDiv.appendChild(inputTag);
+    classBDiv.appendChild(cardBackDiv)
+    classADiv.appendChild(classBDiv)
+    squareMainDiv.appendChild(classADiv);
+    attachCardsDiv.appendChild(squareMainDiv)
+    document.body.appendChild(attachCardsDiv);
+
+	}
+
+	function roundCardLayout(){
+		var inputTag = document.createElement("INPUT");
+    inputTag.setAttribute("type", "text" ,"autofocus");
+    inputTag.setAttribute("value", "your name");
+		cardBackDiv2.appendChild(inputTag);
+    classBDiv2.appendChild(cardBackDiv2)
+    classADiv2.appendChild(classBDiv2)
+    roundMainDiv.appendChild(classADiv2);
+    attachCardsDiv.appendChild(roundMainDiv)
+    document.body.appendChild(attachCardsDiv);
 	}
 
 
@@ -158,12 +177,12 @@ console.log("scripts attached");
 				if(event.target.parentNode.parentNode.parentNode === squareClick){
 					console.log("squareMain clicked")
 					roundMainDiv.remove();
-					cardLayout()	
+					squareCardLayout()	
 				}
 				if(event.target.parentNode.parentNode.parentNode === roundClick){
 					console.log("roundMain clicked");
 					squareMainDiv.remove();
-					cardLayout()
+					roundCardLayout()
 				}
 
 			});
