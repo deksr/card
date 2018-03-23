@@ -231,7 +231,7 @@
 
   .classB {
     transform: rotateY(-180deg);
-  } /*// this gets added to the transition*/ /*.classA:hover */
+  } /*// this gets added to the transition*/ /*.classA:hover *//*.classA:active */
 
 
   .classA, .front2, .back2 {
@@ -264,3 +264,25 @@
   }
 
 
+/*
+      //  getCardsPanel[i].addEventListener('click', function(event){
+      //  console.log("getCardsPanel clicked");
+      //  console.log(event.target.parentNode.parentNode.parentNode)//same
+      //  console.log(getCardsPanel[0])//same
+
+      //  if(event.target.parentNode.parentNode.parentNode === squareClick){
+      //    console.log("squareMain clicked");
+      //    roundMainDiv.remove();
+      //    squareCardLayout();
+      //  }
+
+      //  if(event.target.parentNode.parentNode.parentNode === roundClick){
+      //    console.log("roundMain clicked");
+      //    squareMainDiv.remove();
+      //    roundCardLayout();
+      //  }
+
+      // });
+
+
+*/

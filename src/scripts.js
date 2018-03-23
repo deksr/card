@@ -100,9 +100,7 @@ console.log("scripts attached");
     classBDiv.appendChild(cardBackDiv);
 		classBDiv.appendChild(cardFrontDiv);
 		classADiv.appendChild(classBDiv)
-		squareMainDiv.appendChild(classADiv).addEventListener('click', function(event){
-			console.log("clicked");
-		});
+		squareMainDiv.appendChild(classADiv)
 		attachCardsDiv.appendChild(squareMainDiv);
 		document.body.appendChild(attachCardsDiv);
 
@@ -111,9 +109,7 @@ console.log("scripts attached");
     classBDiv2.appendChild(cardBackDiv2);
 		classBDiv2.appendChild(cardFrontDiv2);
 	  classADiv2.appendChild(classBDiv2)
-		roundMainDiv.appendChild(classADiv2).addEventListener('click', function(event){
-		  console.log("clicked");
-		});
+		roundMainDiv.appendChild(classADiv2)
 		attachCardsDiv.appendChild(roundMainDiv);
 		document.body.appendChild(attachCardsDiv);
 
@@ -126,29 +122,27 @@ console.log("scripts attached");
 	
 
 	function squareCardLayout() {
+	  console.log("hello sweety");
 
-		console.log("hello");
 		var inputTag = document.createElement("INPUT");
     inputTag.setAttribute("type", "text" ,"autofocus");
     inputTag.setAttribute("value", "your name");
 
     var createrotatebutton = document.createElement("button");
  		var buttonText = document.createTextNode("Rotate");	 		
- 		createrotatebutton.classList.add("rotate-button-class");
+ 		createrotatebutton.setAttribute("id", "rotate-button-id")
 
  		createrotatebutton.appendChild(buttonText);
  		cardBackDiv.appendChild(inputTag);//text 
  		cardBackDiv.appendChild(createrotatebutton);//button
-
-
 
     classBDiv.appendChild(cardBackDiv)
     classADiv.appendChild(classBDiv)
     squareMainDiv.appendChild(classADiv);
     attachCardsDiv.appendChild(squareMainDiv)
     document.body.appendChild(attachCardsDiv);
-
 	}
+
 
 
 
@@ -172,14 +166,13 @@ console.log("scripts attached");
     attachCardsDiv.appendChild(roundMainDiv)
     document.body.appendChild(attachCardsDiv);
 
-    // add a button
+    // rotateCard()
+    // createrotatebutton.addEventListener('click', function(){
+    // 	console.log("rotate button clicked sweety")
+    // })
+
 
 	}
-
-
-
-
-
 
 
 
@@ -188,41 +181,41 @@ console.log("scripts attached");
 			
 	function removeCardFromDom(){
     var getCardsPanel = document.getElementsByClassName("cardsPanel");
+
+    var squareClick =  document.getElementById("squareMainID");
+		var roundClick =  document.getElementById("roundMainID");
+
+
   	for (var i = 0; i < getCardsPanel.length; i++) {
   		console.log(getCardsPanel[i]);
 
-	  	getCardsPanel[i].addEventListener('click', function(event){
-				console.log("clicked want to remove");
 
-			  var squareClick =  document.getElementById("squareMainID");
-				var roundClick =  document.getElementById("roundMainID");
+      getCardsPanel[i].addEventListener('click', runThis, false)
+      console.log(getCardsPanel[i])
+      
+      function runThis(event){
 
-				console.log(squareClick, roundClick)
-				console.log(event.target)////
-				console.log(event.target.parentNode.parentNode.parentNode)
-
-				if(event.target.parentNode.parentNode.parentNode === squareClick){
-					console.log("squareMain clicked")
+      	if(event.target.parentNode.parentNode.parentNode === squareClick){
+					console.log("squareMain clicked");
 					roundMainDiv.remove();
-					squareCardLayout()	
+					squareCardLayout();
+					getCardsPanel[0].removeEventListener('click', runThis, false)
 				}
+
 				if(event.target.parentNode.parentNode.parentNode === roundClick){
 					console.log("roundMain clicked");
 					squareMainDiv.remove();
-					roundCardLayout()
-				}
+					roundCardLayout();
+					getCardsPanel[1].removeEventListener('click', runThis, false)
+			  }
 
-			});
-  	};
+      }
+    }
   } 
 
   
   
-
-
   
-
-
 // **************************main recipe******************************
 
 
@@ -253,6 +246,8 @@ console.log("scripts attached");
 
 		  })
 	  };
+
+
 
 
 
