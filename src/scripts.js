@@ -206,7 +206,7 @@ console.log("scripts attached");
 					console.log("roundMain clicked");
 					squareMainDiv.remove();
 					roundCardLayout();
-					getCardsPanel[1].removeEventListener('click', runThis, false)
+					getCardsPanel[0].removeEventListener('click', runThis, false)
 			  }
 
       }
