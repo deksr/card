@@ -204,15 +204,16 @@
 
 
 
-  .sun{ 
-    z-index: 10; 
-    transform: rotateY(0deg);
-  } 
+.sun {
+  transform: rotateY( 180deg );
+}
 
 
-  .moon { 
-    transform: rotateY(-180deg);
-  }
+
+.moon {
+  transform: rotateY(0deg );
+}
+
 
 
 
@@ -264,9 +265,6 @@
   }
 
 
-  /**************/
-
-
   .classB .front2{
     height: 100%;
     width: 100%;
@@ -288,101 +286,6 @@
 
 
 
-  .sun{ 
-    z-index: 10; 
-    transform: rotateY(0deg);
-  } 
-
-
-  .moon { 
-    transform: rotateY(-180deg);
-  }
- 
-
-
-
-
-
-
-/**********************/
-
-
-/*.ba {
-  width: 100px; 
-  height: 100px; 
-  cursor: pointer;
-  position: relative;
-  top: 0;
-  left: 0; 
-}*//*absolute;*/
-
-
-
-/*.fr {
-  width: 100px; 
-  height: 100px; 
-  cursor: pointer;
-  position: relative; 
-  top: 0;
-  left: 0;
-}*//*relative; */
-
-
-
-
-.container {
-  width: 100px;
-  height: 100px;
-  perspective: 200px;
-  position: relative;
-  margin-top:7px;
-  margin-left:25px;
-  margin-right: 25px;
-  left:1%;
-  background-color: pink;
-}
-
-
-
-
-.card {
-  width: 100px;
-  height: 100px;
-  transition: transform 1.5s;
-  transform-style: preserve-3d;
-  -webkit-transform-origin: 50% 50%;
-  position: absolute;
-  bottom: 10px;
-  right: 7px;
-  background-color: green
-}
-
-
-
-
-.card .mdiv {
-  height: 100%;
-  width: 100%;
-  position: absolute; /*this flips on the same side*/
-  backface-visibility: hidden;
-}
-
-
-
-
-.card .ba {
-  background-color: #F1F2F3;
-  transform: rotateY( 180deg );
-}
-
-
-
-.card .fr {
-  background-color: #F1F2F3;
-}
-
-
-
 .sun {
   transform: rotateY( 180deg );
 }
@@ -392,5 +295,7 @@
 .moon {
   transform: rotateY(0deg );
 }
+
+
 
 
