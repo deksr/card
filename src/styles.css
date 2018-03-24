@@ -116,103 +116,118 @@
 
 #squareMainID{
 
-  height:270px;
+  /*height:270px;
     width: 270px;
     background-color: coral;    
     color: white;
     cursor: pointer;
-
+*/
 }
 
 #roundMainID{
 
-  height:270px;
+  /*height:270px;
     width: 270px;
     background-color: green;    
     color: white;
     cursor: pointer;
-    border-radius: 45px;
+    border-radius: 45px;*/
 
 }
 
 
 
 
-  /********class get attached on click********/ 
-
-
+  /********class for square********/ 
 
   .back{
     background-color: yellow;
     width: 270px; 
-    height: 270px; 
+    height: 270px;
     cursor: pointer;
-
   }
 
+
+
   .front{
-    background-color: orange;
+    background-color: yellow;
     width: 270px; 
     height: 270px; 
     cursor: pointer;
-
   }
 
 
 
   .classA { 
+    width: 270px; 
+    height: 270px;
     perspective: 1000px; 
-  } 
-
-
-
-  .classA:hover .classB {
-    transform: rotateY(-180deg);
-  } 
-
-
-  .classA, .front, .back {
-    width: 270px; height: 270px; 
+    position: relative;
+    margin-top:7px;
+    margin-left:25px;
+    margin-right: 25px;
+    left:1%;
+    background-color: blue;
   } 
 
 
   .classB {
-    transition: 0.6s; 
+    width: 270px; 
+    height: 270px;
+    transition: transform 1.5s; 
     transform-style: preserve-3d; 
-    position: relative;
+    -webkit-transform-origin: 50% 50%;
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
   }
 
 
-  .front, .back { 
-    backface-visibility: hidden; 
-    position: absolute; 
-    top: 0;
-    left: 0;
+  .classB .front{
+    height: 100%;
+    width: 100%;
+    position: absolute; /*this flips on the same side*/
+    backface-visibility: hidden;
+
+  }
+
+
+
+  .classA .back {
+    transform: rotateY(180deg);
   } 
 
-  .front{ 
+
+  .classA .front {
+    width: 270px; height: 270px; 
+  } 
+
+
+
+  .sun{ 
     z-index: 10; 
     transform: rotateY(0deg);
   } 
 
 
-  .back { 
+  .moon { 
     transform: rotateY(-180deg);
   }
 
 
 
 
-
+  /********class for round********/ 
 
   .back2{
     background-color: yellow;
+    cursor: pointer;
     width: 270px; 
     height: 270px; 
-    cursor: pointer;
     border-radius: 20px;
-
   }
+
+
 
   .front2{
     background-color: orange;
@@ -220,69 +235,162 @@
     height: 270px; 
     cursor: pointer;
     border-radius: 20px;
-
   }
 
+
+
   .classA { 
+    width: 270px; 
+    height: 270px;
     perspective: 1000px; 
+    position: relative;
+    margin-top:7px;
+    margin-left:25px;
+    margin-right: 25px;
+    left:1%;
+    background-color: blue;
+  } 
+
+
+  .classB {
+    width: 270px; 
+    height: 270px;
+    transition: transform 1.5s; 
+    transform-style: preserve-3d; 
+    -webkit-transform-origin: 50% 50%;
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
+  }
+
+
+  /**************/
+
+
+  .classB .front2{
+    height: 100%;
+    width: 100%;
+    position: absolute; /*this flips on the same side*/
+    backface-visibility: hidden;
+  }
+
+
+
+  .classA .back2 {
+    transform: rotateY(180deg);
   } 
 
 
 
-  .classB {
-    transform: rotateY(-180deg);
-  } /*// this gets added to the transition*/ /*.classA:hover *//*.classA:active */
-
-
-  .classA, .front2, .back2 {
+  .classA .front2 {
     width: 270px; height: 270px; 
   } 
 
 
-  .classB {
-    transition: 0.6s; 
-    transform-style: preserve-3d; 
-    position: relative;
-  }
 
-
-  .front2, .back2 { 
-    backface-visibility: hidden; 
-    position: absolute; 
-    top: 0;
-    left: 0;
-  } 
-
-  .front2{ 
+  .sun{ 
     z-index: 10; 
     transform: rotateY(0deg);
   } 
 
 
-  .back2{ 
+  .moon { 
     transform: rotateY(-180deg);
   }
+ 
 
 
-/*
-      //  getCardsPanel[i].addEventListener('click', function(event){
-      //  console.log("getCardsPanel clicked");
-      //  console.log(event.target.parentNode.parentNode.parentNode)//same
-      //  console.log(getCardsPanel[0])//same
-
-      //  if(event.target.parentNode.parentNode.parentNode === squareClick){
-      //    console.log("squareMain clicked");
-      //    roundMainDiv.remove();
-      //    squareCardLayout();
-      //  }
-
-      //  if(event.target.parentNode.parentNode.parentNode === roundClick){
-      //    console.log("roundMain clicked");
-      //    squareMainDiv.remove();
-      //    roundCardLayout();
-      //  }
-
-      // });
 
 
-*/
+
+
+/**********************/
+
+
+/*.ba {
+  width: 100px; 
+  height: 100px; 
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  left: 0; 
+}*//*absolute;*/
+
+
+
+/*.fr {
+  width: 100px; 
+  height: 100px; 
+  cursor: pointer;
+  position: relative; 
+  top: 0;
+  left: 0;
+}*//*relative; */
+
+
+
+
+.container {
+  width: 100px;
+  height: 100px;
+  perspective: 200px;
+  position: relative;
+  margin-top:7px;
+  margin-left:25px;
+  margin-right: 25px;
+  left:1%;
+  background-color: pink;
+}
+
+
+
+
+.card {
+  width: 100px;
+  height: 100px;
+  transition: transform 1.5s;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 50% 50%;
+  position: absolute;
+  bottom: 10px;
+  right: 7px;
+  background-color: green
+}
+
+
+
+
+.card .mdiv {
+  height: 100%;
+  width: 100%;
+  position: absolute; /*this flips on the same side*/
+  backface-visibility: hidden;
+}
+
+
+
+
+.card .ba {
+  background-color: #F1F2F3;
+  transform: rotateY( 180deg );
+}
+
+
+
+.card .fr {
+  background-color: #F1F2F3;
+}
+
+
+
+.sun {
+  transform: rotateY( 180deg );
+}
+
+
+
+.moon {
+  transform: rotateY(0deg );
+}
+
+
