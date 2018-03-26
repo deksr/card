@@ -82,13 +82,23 @@
 
 
 
-/*  .attach-cards-div{
-    height: 300px;
-	 	width: 100%;
-	 	margin: auto;
-	 	text-align: center;
+  .attach-cards-div{
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    left: 300px;
+    text-align: center;
+    background-color: pink;
+	}
 
-	}*/
+
+  #squareMainID{
+    display: inline-block;
+  }
+
+  #roundMainID{
+    display: inline-block;
+  }
 
 
 
@@ -204,15 +214,15 @@
 
 
 
-.sun {
-  transform: rotateY( 180deg );
-}
+  .sun {
+    transform: rotateY( 180deg );
+  }
 
 
 
-.moon {
-  transform: rotateY(0deg );
-}
+  .moon {
+    transform: rotateY(0deg );
+  }
 
 
 
@@ -298,4 +308,13 @@
 
 
 
+#dragIDsweety{
+  z-index: 30;
+}/*// this is for draggable element*/
 
+input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
