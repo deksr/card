@@ -1,6 +1,14 @@
 console.log("scripts attached");
 
+$( document ).ready(function() {
+    console.log( "ready!" );
+    $('#dragIDsweety').draggable()
+});
+
+
 // ********************************************************
+
+
   var buttonsClass= document.getElementsByClassName("buttonClass");
   var pick= document.getElementById("pick");
   var print= document.getElementById("print");
@@ -8,6 +16,8 @@ console.log("scripts attached");
 
   var mainWbpageDivId = document.getElementById('mainWbpageDivId')
 	var popUpText = document.createElement("div");
+
+
 
 
 
@@ -42,11 +52,13 @@ console.log("scripts attached");
 
 	var tinyDivFront = document.createElement("div");
 	tinyDivFront.setAttribute("class", "tiny-div-front");
+	tinyDivFront.setAttribute("id", "tinyDivFront");
+
 
 
 	var cardBackDiv = document.createElement("div");//class .back is yellow color
 	// cardBackDiv.className += "apple"  // add this when rotate is clicked
-	cardBackDiv.setAttribute("class", "back hello i'm back");
+	cardBackDiv.setAttribute("class", "back");
 	cardBackDiv.setAttribute("id", "fourD");
 
 
@@ -105,11 +117,8 @@ console.log("scripts attached");
 
 
 
-
   function attachTwoCardsOnDom(){
 
-
- 
     classBDiv.appendChild(cardFrontDiv);
 		classBDiv.appendChild(cardBackDiv);
 		classADiv.appendChild(classBDiv)
@@ -129,57 +138,91 @@ console.log("scripts attached");
 	}
 
 
+  	var InputBoxbutton = document.createElement("button");
 
 
+  function addInputBoxbutton(){
+  	var buttonText = document.createTextNode("create Input text");
+ 		InputBoxbutton.setAttribute("id", "createInputText")
+ 		InputBoxbutton.appendChild(buttonText);
+ 		attachCardsDiv.appendChild(InputBoxbutton)
+ 		document.body.appendChild(attachCardsDiv);
+  }
 
-	
+
+  // function addRotatebutton(){
+
+  // 	var rotateButton = document.createElement("button");
+  // 	var buttonText = document.createTextNode("rotate button");
+ 	// 	rotateButton.setAttribute("id", "createInputText")
+ 	// 	rotateButton.appendChild(buttonText);
+ 	// 	attachCardsDiv.appendChild(rotateButton)
+ 	// 	document.body.appendChild(attachCardsDiv);
+
+  // }
+
+
 
 
 
 	function squareCardLayout() {
 
-		var tinyDivFront = document.createElement("div");
-		tinyDivFront.setAttribute("class", "tiny-div-front");
+		var rotateButton = document.createElement("button");
+ 		var buttonText = document.createTextNode("Rotate");
+ 		rotateButton.setAttribute("id", "rotatesbothSide")
+ 		rotateButton.appendChild(buttonText);
 
-
-		var tinyDivBack = document.createElement("div");
-		tinyDivBack.setAttribute("class", "tiny-div-back");
-
-
-
-		var inputTag = document.createElement("INPUT");
-    inputTag.setAttribute("type", "text" ,"autofocus");
-    inputTag.setAttribute("value", "your name");
 
 
 
     var seeBackButton = document.createElement("button");
- 		var buttonText = document.createTextNode("Rotate to see Back");	 		
+ 		var buttonText = document.createTextNode("Rotate to see Back");
+ 	  seeBackButton.setAttribute("draggable", "true");	
  		seeBackButton.setAttribute("id", "rotate-to-back-id")
- 		seeBackButton.appendChild(buttonText);//to see back button
-
-
+ 		seeBackButton.appendChild(buttonText);
 
 
  		var seeFrontButton = document.createElement("button");
- 		var buttonText = document.createTextNode("Rotate to see Front");	 		
+ 		var buttonText = document.createTextNode("Rotate to see Front");
  		seeFrontButton.setAttribute("id", "rotate-to-front-id")
- 		seeFrontButton.appendChild(buttonText);//to see front button
+ 		seeFrontButton.appendChild(buttonText);
 
 
 
 
-    tinyDivFront.appendChild(inputTag);
-    tinyDivFront.appendChild(seeBackButton);//button]
-    tinyDivBack.appendChild(seeFrontButton);//button
-
-    cardFrontDiv.appendChild(tinyDivFront);//text 
-    cardBackDiv.appendChild(tinyDivBack);//button
+ 	  // cardFrontDiv.appendChild(inputTag);//text 
+ 		squareMainDiv.appendChild(seeBackButton);//button
+ 		squareMainDiv.appendChild(seeFrontButton);//button
+ 		squareMainDiv.appendChild(rotateButton);//button
 
 
+ 		rotateButton.addEventListener('click', function(e){
+ 			console.log("rotates clicked");
+
+ 			var loo = document.getElementById('fourB');
+ 			var bar = document.getElementById('fourC');
+
+	 		console.log(e.target)
+	 		console.log(loo.querySelectorAll(".sun"))
+	 		console.log(bar)
 
 
-    //appending on the dom
+ 			if(
+ 				loo.classList.contains(".sun") === true){
+ 				// loo.classList.toggle("visible");
+ 			  loo.classList.remove("sun");//
+ 				console.log("i am hot as well");
+ 			}
+ 			else
+ 			{
+ 				loo.setAttribute("class", "classB sun");//
+ 				console.log("im hot")
+ 			}
+
+ 		})
+
+
+ 		//appending on the dom
     classBDiv.appendChild(cardFrontDiv)
     classBDiv.appendChild(cardBackDiv)
     classADiv.appendChild(classBDiv)
@@ -187,35 +230,86 @@ console.log("scripts attached");
     attachCardsDiv.appendChild(squareMainDiv)
     document.body.appendChild(attachCardsDiv);
 
-    console.log("working")
 
-
-
-
-
-
-    // ************rough work from here
 
     document.getElementById('rotate-to-back-id').addEventListener('click',function(){
-     console.log("hello there rotate to back button clicked");
+      console.log("hello there rotate to back button clicked");
 
       var loo = document.getElementById('fourB');
-      loo.setAttribute("class", "classB sun");//permanant??
+      loo.setAttribute("class", "classB sun");//
 
       var bar = document.getElementById('fourC');
       bar.setAttribute("class", "front moon");
-    })
 
+    })
 
     document.getElementById('rotate-to-front-id').addEventListener('click',function(){
      console.log("hello there rotate to front button clicked");
 
       var loo = document.getElementById('fourB');
-      loo.classList.remove("sun");//permanant??
+      loo.classList.remove("sun");//
+
     })
 
+  }
 
-	}
+
+
+  function addListToDom(){
+
+	  var ul=document.createElement('ul');
+    ul.setAttribute("id", "ulDiv");
+
+    InputBoxbutton.addEventListener('click', function(){
+	    console.log("sm,d,asm");
+
+		  var inputTagOne = document.createElement("INPUT");
+	    inputTagOne.setAttribute("type", "text" ,"autofocus");
+	    inputTagOne.setAttribute("value", "your name");
+	    inputTagOne.setAttribute("class", "tagClass")
+
+
+
+    	var li=document.createElement('li');
+    	li.innerHTML="hello";
+    	li.appendChild(inputTagOne)
+    	// document.body.appendChild(ul); //this create elements dynamically
+
+
+    	var removeButton = document.createElement("button");
+	 		var buttonText = document.createTextNode("delete Input Tag");
+	 		removeButton.setAttribute("class", "deleteButton");
+	 		removeButton.appendChild(buttonText);
+
+	 		li.appendChild(removeButton)
+    	ul.appendChild(li);
+    	(attachCardsDiv).appendChild(ul);
+
+
+    	document.querySelectorAll(".deleteButton").forEach(function(btn) {
+	      btn.addEventListener('click', function(e){
+		      e.target.parentNode.remove();
+		    });
+      });
+
+      $( document ).ready(function() {
+        console.log( "ready!" );
+        $('#ulDiv').draggable()
+      });
+
+
+    })
+  }
+
+
+    
+
+
+
+
+
+
+
 
 
 
@@ -255,10 +349,15 @@ console.log("scripts attached");
      console.log("hello there rotate to back button clicked");
 
       var loo = document.getElementById('fourB');
-      loo.setAttribute("class", "classB sun");//permanant??
+      loo.setAttribute("class", "classB sun");
 
       var bar = document.getElementById('fourC');
       bar.setAttribute("class", "front2 moon");
+
+      // document.getElementById('dragIDsweety').style.visibility = "hidden";
+      // document.getElementById(id).style.visibility = "visible"; 
+      // use this and add set timeout
+
     })
 
 
@@ -266,12 +365,11 @@ console.log("scripts attached");
      console.log("hello there rotate to front button clicked");
 
       var loo = document.getElementById('fourB');
-      loo.classList.remove("sun");//permanant??
+      loo.classList.remove("sun");
+
     })
-
-
-
 	}
+
 
 
 
@@ -298,6 +396,9 @@ console.log("scripts attached");
 					console.log("squareMain clicked");
 					roundMainDiv.remove();
 					squareCardLayout();
+					addInputBoxbutton()
+					addListToDom()
+
 					getCardsPanel[0].removeEventListener('click', runThis, false)
 				}
 
@@ -347,7 +448,12 @@ console.log("scripts attached");
 				}
 
 		  })
-	  };
+	  }
+
+
+
+
+
 
 
 
