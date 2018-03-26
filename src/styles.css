@@ -296,13 +296,13 @@
 
 
 
-.sun {
+.sun #uldiv{
   transform: rotateY( 180deg );
 }
 
 
 
-.moon {
+.moon #uldiv{
   transform: rotateY(0deg );
 }
 

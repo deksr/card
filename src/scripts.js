@@ -33,19 +33,16 @@ $( document ).ready(function() {
 
 
 	var classADiv = document.createElement("div");
-	// classADiv.className += "apple" //add this when rotate is clicked
 	classADiv.setAttribute("class", "classA"); 
   classADiv.setAttribute("id", "fourA"); 
 
 
 	var classBDiv = document.createElement("div");
-	// classBDiv.className += "apple" // add this when rotate is clicked
 	classBDiv.setAttribute("class", "classB"); 
 	classBDiv.setAttribute("id", "fourB"); 
 
 
 	var cardFrontDiv = document.createElement("div");//class .front is orange color
-	// cardFrontDiv.className += "apple"  // add this when rotate is clicked
 	cardFrontDiv.setAttribute("class", "front");
 	cardFrontDiv.setAttribute("id", "fourC"); 
 
@@ -57,7 +54,6 @@ $( document ).ready(function() {
 
 
 	var cardBackDiv = document.createElement("div");//class .back is yellow color
-	// cardBackDiv.className += "apple"  // add this when rotate is clicked
 	cardBackDiv.setAttribute("class", "back");
 	cardBackDiv.setAttribute("id", "fourD");
 
@@ -76,29 +72,34 @@ $( document ).ready(function() {
 
 
   var classADiv2 = document.createElement("div");
-	// classADiv.className += "apple" //add this when rotate is clicked
 	classADiv2.setAttribute("class", "classA"); 
   classADiv2.setAttribute("id", "fourA"); 
 
 
 
 	var classBDiv2 = document.createElement("div");
-	// classBDiv.className += "apple" // add this when rotate is clicked
 	classBDiv2.setAttribute("class", "classB"); 
 	classBDiv2.setAttribute("id", "fourB"); 
 
 
 	var cardFrontDiv2 = document.createElement("div");
-	// cardFrontDiv.className += "apple"  // add this when rotate is clicked
 	cardFrontDiv2.setAttribute("class", "front2"); 
 	cardFrontDiv2.setAttribute("id", "fourC"); 
 
 
 
 	var cardBackDiv2 = document.createElement("div");
-	// cardBackDiv.className += "apple"  // add this when rotate is clicked
 	cardBackDiv2.setAttribute("class", "back2");
 	cardBackDiv2.setAttribute("id", "fourD");
+
+
+
+
+	var InputBoxbutton = document.createElement("button");
+
+  var ul=document.createElement('ul');
+  ul.setAttribute("id", "ulDiv");
+
 
 
 
@@ -138,7 +139,6 @@ $( document ).ready(function() {
 	}
 
 
-  	var InputBoxbutton = document.createElement("button");
 
 
   function addInputBoxbutton(){
@@ -150,31 +150,11 @@ $( document ).ready(function() {
   }
 
 
-  // function addRotatebutton(){
-
-  // 	var rotateButton = document.createElement("button");
-  // 	var buttonText = document.createTextNode("rotate button");
- 	// 	rotateButton.setAttribute("id", "createInputText")
- 	// 	rotateButton.appendChild(buttonText);
- 	// 	attachCardsDiv.appendChild(rotateButton)
- 	// 	document.body.appendChild(attachCardsDiv);
-
-  // }
-
-
 
 
 
 	function squareCardLayout() {
-
-		var rotateButton = document.createElement("button");
- 		var buttonText = document.createTextNode("Rotate");
- 		rotateButton.setAttribute("id", "rotatesbothSide")
- 		rotateButton.appendChild(buttonText);
-
-
-
-
+	
     var seeBackButton = document.createElement("button");
  		var buttonText = document.createTextNode("Rotate to see Back");
  	  seeBackButton.setAttribute("draggable", "true");	
@@ -188,38 +168,9 @@ $( document ).ready(function() {
  		seeFrontButton.appendChild(buttonText);
 
 
-
-
  	  // cardFrontDiv.appendChild(inputTag);//text 
  		squareMainDiv.appendChild(seeBackButton);//button
  		squareMainDiv.appendChild(seeFrontButton);//button
- 		squareMainDiv.appendChild(rotateButton);//button
-
-
- 		rotateButton.addEventListener('click', function(e){
- 			console.log("rotates clicked");
-
- 			var loo = document.getElementById('fourB');
- 			var bar = document.getElementById('fourC');
-
-	 		console.log(e.target)
-	 		console.log(loo.querySelectorAll(".sun"))
-	 		console.log(bar)
-
-
- 			if(
- 				loo.classList.contains(".sun") === true){
- 				// loo.classList.toggle("visible");
- 			  loo.classList.remove("sun");//
- 				console.log("i am hot as well");
- 			}
- 			else
- 			{
- 				loo.setAttribute("class", "classB sun");//
- 				console.log("im hot")
- 			}
-
- 		})
 
 
  		//appending on the dom
@@ -231,8 +182,7 @@ $( document ).ready(function() {
     document.body.appendChild(attachCardsDiv);
 
 
-
-    document.getElementById('rotate-to-back-id').addEventListener('click',function(){
+    document.getElementById('rotate-to-back-id').addEventListener('click',function(e){
       console.log("hello there rotate to back button clicked");
 
       var loo = document.getElementById('fourB');
@@ -241,13 +191,22 @@ $( document ).ready(function() {
       var bar = document.getElementById('fourC');
       bar.setAttribute("class", "front moon");
 
+      document.getElementById('ulDiv').style.display = "none"
+
+
+
+      //ul tag disappears
     })
+
+
 
     document.getElementById('rotate-to-front-id').addEventListener('click',function(){
      console.log("hello there rotate to front button clicked");
 
       var loo = document.getElementById('fourB');
       loo.classList.remove("sun");//
+      // ul tag appears
+      document.getElementById('ulDiv').style.display = 'block'
 
     })
 
@@ -255,10 +214,11 @@ $( document ).ready(function() {
 
 
 
+
+
   function addListToDom(){
 
-	  var ul=document.createElement('ul');
-    ul.setAttribute("id", "ulDiv");
+
 
     InputBoxbutton.addEventListener('click', function(){
 	    console.log("sm,d,asm");
@@ -302,15 +262,16 @@ $( document ).ready(function() {
   }
 
 
+  function hideAndShowOnTurn(){
+
+
+  	document.getElementById("rotate-to-back-id")
+
+
+  }
+
+
     
-
-
-
-
-
-
-
-
 
 
 
@@ -354,10 +315,6 @@ $( document ).ready(function() {
       var bar = document.getElementById('fourC');
       bar.setAttribute("class", "front2 moon");
 
-      // document.getElementById('dragIDsweety').style.visibility = "hidden";
-      // document.getElementById(id).style.visibility = "visible"; 
-      // use this and add set timeout
-
     })
 
 
@@ -398,6 +355,8 @@ $( document ).ready(function() {
 					squareCardLayout();
 					addInputBoxbutton()
 					addListToDom()
+
+
 
 					getCardsPanel[0].removeEventListener('click', runThis, false)
 				}
