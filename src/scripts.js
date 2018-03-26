@@ -120,6 +120,7 @@ $( document ).ready(function() {
 
   function attachTwoCardsOnDom(){
 
+
     classBDiv.appendChild(cardFrontDiv);
 		classBDiv.appendChild(cardBackDiv);
 		classADiv.appendChild(classBDiv)
@@ -191,10 +192,7 @@ $( document ).ready(function() {
       var bar = document.getElementById('fourC');
       bar.setAttribute("class", "front moon");
 
-      document.getElementById('ulDiv').style.display = "none"
-
-
-
+      // document.getElementById('ulDiv').style.display = "none"
       //ul tag disappears
     })
 
@@ -205,8 +203,13 @@ $( document ).ready(function() {
 
       var loo = document.getElementById('fourB');
       loo.classList.remove("sun");//
+
+      // var bar = document.getElementById('fourC');
+      // bar.classList.remove("moon")
+
+
       // ul tag appears
-      document.getElementById('ulDiv').style.display = 'block'
+      // document.getElementById('ulDiv').style.display = 'block'
 
     })
 
@@ -243,7 +246,8 @@ $( document ).ready(function() {
 
 	 		li.appendChild(removeButton)
     	ul.appendChild(li);
-    	(attachCardsDiv).appendChild(ul);
+    	(cardFrontDiv).appendChild(ul);
+
 
 
     	document.querySelectorAll(".deleteButton").forEach(function(btn) {
@@ -262,13 +266,13 @@ $( document ).ready(function() {
   }
 
 
-  function hideAndShowOnTurn(){
+  // function hideAndShowOnTurn(){
 
 
-  	document.getElementById("rotate-to-back-id")
+  // 	document.getElementById("rotate-to-back-id")
 
 
-  }
+  // }
 
 
     
