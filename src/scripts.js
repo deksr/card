@@ -138,10 +138,10 @@ $( document ).ready(function() {
 	}
 
 
+  	var InputBoxbutton = document.createElement("button");
 
 
   function addInputBoxbutton(){
-  	var InputBoxbutton = document.createElement("button");
   	var buttonText = document.createTextNode("create Input text");
  		InputBoxbutton.setAttribute("id", "createInputText")
  		InputBoxbutton.appendChild(buttonText);
@@ -167,6 +167,13 @@ $( document ).ready(function() {
 
 	function squareCardLayout() {
 
+		var rotateButton = document.createElement("button");
+ 		var buttonText = document.createTextNode("Rotate");
+ 		rotateButton.setAttribute("id", "rotatesbothSide")
+ 		rotateButton.appendChild(buttonText);
+
+
+
 
     var seeBackButton = document.createElement("button");
  		var buttonText = document.createTextNode("Rotate to see Back");
@@ -181,12 +188,41 @@ $( document ).ready(function() {
  		seeFrontButton.appendChild(buttonText);
 
 
+
+
  	  // cardFrontDiv.appendChild(inputTag);//text 
  		squareMainDiv.appendChild(seeBackButton);//button
  		squareMainDiv.appendChild(seeFrontButton);//button
+ 		squareMainDiv.appendChild(rotateButton);//button
 
 
-    //appending on the dom
+ 		rotateButton.addEventListener('click', function(e){
+ 			console.log("rotates clicked");
+
+ 			var loo = document.getElementById('fourB');
+ 			var bar = document.getElementById('fourC');
+
+	 		console.log(e.target)
+	 		console.log(loo.querySelectorAll(".sun"))
+	 		console.log(bar)
+
+
+ 			if(
+ 				loo.classList.contains(".sun") === true){
+ 				// loo.classList.toggle("visible");
+ 			  loo.classList.remove("sun");//
+ 				console.log("i am hot as well");
+ 			}
+ 			else
+ 			{
+ 				loo.setAttribute("class", "classB sun");//
+ 				console.log("im hot")
+ 			}
+
+ 		})
+
+
+ 		//appending on the dom
     classBDiv.appendChild(cardFrontDiv)
     classBDiv.appendChild(cardBackDiv)
     classADiv.appendChild(classBDiv)
@@ -194,13 +230,10 @@ $( document ).ready(function() {
     attachCardsDiv.appendChild(squareMainDiv)
     document.body.appendChild(attachCardsDiv);
 
-    addInputBoxbutton()
-    
 
-    // ************rough work from here
 
     document.getElementById('rotate-to-back-id').addEventListener('click',function(){
-     console.log("hello there rotate to back button clicked");
+      console.log("hello there rotate to back button clicked");
 
       var loo = document.getElementById('fourB');
       loo.setAttribute("class", "classB sun");//
@@ -208,19 +241,70 @@ $( document ).ready(function() {
       var bar = document.getElementById('fourC');
       bar.setAttribute("class", "front moon");
 
-
-
     })
-
 
     document.getElementById('rotate-to-front-id').addEventListener('click',function(){
      console.log("hello there rotate to front button clicked");
 
       var loo = document.getElementById('fourB');
       loo.classList.remove("sun");//
+
     })
 
-	}
+  }
+
+
+
+  function addListToDom(){
+
+	  var ul=document.createElement('ul');
+    ul.setAttribute("id", "ulDiv");
+
+    InputBoxbutton.addEventListener('click', function(){
+	    console.log("sm,d,asm");
+
+		  var inputTagOne = document.createElement("INPUT");
+	    inputTagOne.setAttribute("type", "text" ,"autofocus");
+	    inputTagOne.setAttribute("value", "your name");
+	    inputTagOne.setAttribute("class", "tagClass")
+
+
+
+    	var li=document.createElement('li');
+    	li.innerHTML="hello";
+    	li.appendChild(inputTagOne)
+    	// document.body.appendChild(ul); //this create elements dynamically
+
+
+    	var removeButton = document.createElement("button");
+	 		var buttonText = document.createTextNode("delete Input Tag");
+	 		removeButton.setAttribute("class", "deleteButton");
+	 		removeButton.appendChild(buttonText);
+
+	 		li.appendChild(removeButton)
+    	ul.appendChild(li);
+    	(attachCardsDiv).appendChild(ul);
+
+
+    	document.querySelectorAll(".deleteButton").forEach(function(btn) {
+	      btn.addEventListener('click', function(e){
+		      e.target.parentNode.remove();
+		    });
+      });
+
+      $( document ).ready(function() {
+        console.log( "ready!" );
+        $('#ulDiv').draggable()
+      });
+
+
+    })
+  }
+
+
+    
+
+
 
 
 
@@ -284,10 +368,8 @@ $( document ).ready(function() {
       loo.classList.remove("sun");
 
     })
-
-
-
 	}
+
 
 
 
@@ -314,6 +396,9 @@ $( document ).ready(function() {
 					console.log("squareMain clicked");
 					roundMainDiv.remove();
 					squareCardLayout();
+					addInputBoxbutton()
+					addListToDom()
+
 					getCardsPanel[0].removeEventListener('click', runThis, false)
 				}
 
@@ -372,10 +457,7 @@ $( document ).ready(function() {
 
 
 
-$( document ).ready(function() {
-    console.log( "ready!" );
-    $('#dragIDsweety').draggable()
-});
+
 
 
 
