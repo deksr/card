@@ -102,48 +102,8 @@
 
 
 
-/*  .square-card-style {
-    height:270px;
-    width: 270px;
-    background-color: coral;    
-    color: white;
-    cursor: pointer;
-  }
 
 
-
-
-
-  .border-radius-card-style {
-    height:270px;
-    width: 270px;
-    background-color: green;    
-    color: white;
-    cursor: pointer;
-  }*/
-
-  /********adding shapes to the boxes********/ 
-
-#squareMainID{
-
-  /*height:270px;
-    width: 270px;
-    background-color: coral;    
-    color: white;
-    cursor: pointer;
-*/
-}
-
-#roundMainID{
-
-  /*height:270px;
-    width: 270px;
-    background-color: green;    
-    color: white;
-    cursor: pointer;
-    border-radius: 45px;*/
-
-}
 
 
 
@@ -151,7 +111,7 @@
   /********class for square********/ 
 
   .back{
-    background-color: yellow;
+    background-color: brown;
     width: 270px; 
     height: 270px;
     cursor: pointer;
@@ -205,6 +165,8 @@
 
   .classA .back {
     transform: rotateY(180deg);
+    position: relative;
+    backface-visibility: hidden;
   } 
 
 
@@ -250,7 +212,7 @@
 
 
 
-  .classA { 
+  /*.classA { 
     width: 270px; 
     height: 270px;
     perspective: 1000px; 
@@ -272,10 +234,18 @@
     position: absolute;
     bottom: 10px;
     right: 7px;
+  }*/
+
+
+  /*.classB {
+    height: 100%;
+    width: 100%;
+    position: absolute; 
+    backface-visibility: hidden;
   }
+*/
 
-
-  .classB .front2{
+  .front2{
     height: 100%;
     width: 100%;
     position: absolute; /*this flips on the same side*/
@@ -284,33 +254,29 @@
 
 
 
-  .classA .back2 {
-    transform: rotateY(180deg);
+
+  .back2 {
+    transform: rotateY(180deg);    
+
+
   } 
 
 
 
-  .classA .front2 {
+  .front2 {
     width: 270px; height: 270px; 
   } 
 
 
 
-.sun #uldiv{
-  transform: rotateY( 180deg );
+li{
+  display: list-item;
+
 }
 
 
 
-.moon #uldiv{
-  transform: rotateY(0deg );
-}
 
-
-
-#dragIDsweety{
-  z-index: 30;
-}/*// this is for draggable element*/
 
 input {
   border: 0;
