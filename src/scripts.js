@@ -163,6 +163,32 @@ $( document ).ready(function() {
  		seeBackButton.appendChild(buttonText);
 
 
+
+ 		var uploadButton = document.createElement("input");
+ 		uploadButton.setAttribute("type", "file");
+ 		uploadButton.setAttribute("id", "filetag")
+
+ 		var imageAttach = document.createElement("img");
+ 		imageAttach.setAttribute("src", "");
+ 		imageAttach.setAttribute("id", "preview");
+
+
+ 		cardBackDiv.appendChild(uploadButton);
+ 		cardBackDiv.appendChild(imageAttach);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  		var seeFrontButton = document.createElement("button");
  		var buttonText = document.createTextNode("Rotate to see Front");
  		seeFrontButton.setAttribute("id", "rotate-to-front-id")
@@ -266,13 +292,32 @@ $( document ).ready(function() {
   }
 
 
-  // function hideAndShowOnTurn(){
 
 
-  // 	document.getElementById("rotate-to-back-id")
+  function uploadImage(){/////code directly copy and pasted from the internet
 
+    var fileTag = document.getElementById("filetag"),
+    preview = document.getElementById("preview");
 
-  // }
+    function changeImage(input) {
+		  var reader;
+
+		  if (input.files && input.files[0]) {
+		    reader = new FileReader();
+
+		    reader.onload = function(e) {
+		      preview.setAttribute('src', e.target.result);
+		    }
+
+		    reader.readAsDataURL(input.files[0]);
+		  }
+		}
+    
+    fileTag.addEventListener("change", function() {
+      changeImage(this);
+    });	
+
+  }//////code directly copy and pasted from the internet
 
 
     
@@ -359,6 +404,7 @@ $( document ).ready(function() {
 					squareCardLayout();
 					addInputBoxbutton()
 					addListToDom()
+					uploadImage()
 
 
 
@@ -412,16 +458,6 @@ $( document ).ready(function() {
 
 		  })
 	  }
-
-
-
-
-
-
-
-
-
-
 
 
 

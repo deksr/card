@@ -46,199 +46,20 @@
     <div id="fruit" class="ap">fruit</div>
 
 
+<input type="file" id="filetag">
+<img src="" id="preview">
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
 
-    <script type="text/javascript">
-    var fruit = document.getElementById('fruit');
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-    if(fruit.querySelectorAll('.ap') === true){
-    	 fruit.setAttribute("class", "ap sun");//
-    }
 
-    // if(fruit.querySelectorAll('.ap') === true)
 
 
+<script src="src/scripts.js"> </script>
 
 
-
-
-
-
-
-    var pickButton = document.getElementById('pickButton');
-    var ul=document.createElement('ul');
-    ul.setAttribute("id", "ulDiv");
-
-
-
-
-
-
-
-    function createTwoSquares(){	
-    	for (var i = 0; i < 2; i++) {
-    		var li=document.createElement('li');
-    	  li.innerHTML="hello";
-    	  li.setAttribute("class", "twoCardsClass");
-    	  ul.appendChild(li);
-    	  document.body.appendChild(ul);
-    	};
-    }
-
-
-
-
-
-
-    function addflipButton(){ //calling inside twosquareID
-
-		  var flipButton = document.createElement("button");
-		  var buttonText = document.createTextNode("Rotate to see Back");	 		
- 		  flipButton.setAttribute("id", "flipButtonId")
- 		  flipButton.appendChild(buttonText);
- 		  document.body.appendChild(flipButton);
-
-		}	
-
-
-		function addInputButton(){ //calling inside twosquareID
-
-		  var InputButton = document.createElement("button");
-		  var buttonText = document.createTextNode("Add text to the screen");	 		
- 		  InputButton.setAttribute("id", "flipButtonId")
- 		  InputButton.appendChild(buttonText);
- 		  document.body.appendChild(InputButton);
-
-		}	
-
-
-
-		function TwoSquaresAddId(){
-			var cards = document.getElementsByClassName('twoCardsClass')
-			
-			for (var i = 0; i < cards.length; i++) {
-				console.log(cards[i])
-				cards[0].setAttribute("id", "squareId");
-				cards[1].setAttribute("id", "roundId");
-
-				var squareCard = document.getElementById('squareId');
-		    var roundCard = document.getElementById('roundId')
-
-				cards[i].addEventListener('click', runThis, false)
-
-				function runThis(e){
-					if(e.target === squareCard){
-						console.log("square card clicked")
-						roundCard.remove()
-						cards[0].removeEventListener('click', runThis, false)
-						addInputButton()
-            addflipButton()
-					}
-					if(e.target === roundCard){
-						console.log("square card clicked")
-						squareCard.remove();
-						cards[0].removeEventListener('click', runThis, false)
-						addInputButton()
-            addflipButton()
-					}
-
-				}
-
-			};
-		}
-
-
-
-
-    
-
-		function addSquareflipStyle(){
-			var squareCard = document.getElementById('squareId');
-	    var backDiv = document.createElement('div');
-	    var frontDiv = document.createElement('div');
-			var classBDiv = document.createElement('div');
-			var classADiv = document.createElement('div');
-			backDiv.setAttribute("class", "back")
-			frontDiv.setAttribute("class", "front")
-			classBDiv.setAttribute("class", "classB")
-			classADiv.setAttribute("class", "classA")
-			classBDiv.appendChild(backDiv)
-      classBDiv.appendChild(frontDiv)
-      classADiv.appendChild(classBDiv)
-      squareCard.appendChild(classADiv)
-
-      if(classADiv.parentNode === squareCard){
-      	squareCard.appendChild(classADiv);
-
-      	ulDiv.appendChild(squareCard);
-        document.body.appendChild(ulDiv);
-			}
-    }
-
-
-    function addRoundflipStyle(){
-
-	    var roundCard = document.getElementById('roundId')
-			var backDiv2 = document.createElement('div');
-	    var frontDiv2 = document.createElement('div');
-			var classBDiv2 = document.createElement('div');
-			var classADiv2 = document.createElement('div');
-			backDiv2.setAttribute("class", "back")
-			frontDiv2.setAttribute("class", "front")
-			classBDiv2.setAttribute("class", "classB")
-			classADiv2.setAttribute("class", "classA")
-			classBDiv2.appendChild(backDiv2)
-      classBDiv2.appendChild(frontDiv2)
-      classADiv2.appendChild(classBDiv2)
-      roundCard.appendChild(classADiv2)
-
-      if(classADiv2.parentNode === roundCard){
-      	roundCard.appendChild(classADiv2);
-
-      	ulDiv.appendChild(roundCard);
-        document.body.appendChild(ulDiv);
-			}
-      
-    }
-		  
-
-		
-
-
-      
-      
-
-
-
-
-
-
-		
-
-
-    pickButton.addEventListener('click', function(){
-    	createTwoSquares()
-    	TwoSquaresAddId()
-    	addSquareflipStyle()
-    	addRoundflipStyle()
-
-    })
-
-
-
- 
-    // function createInputDynamically(){
-    // 	var li=document.createElement('li');
-    // 	li.innerHTML="hello";
-    // 	ul.appendChild(li);
-    // 	document.body.appendChild(ul); //this create elements dynamically
-    // }
-
-
-
-
-    </script>
 
 
 </body>
