@@ -1,16 +1,10 @@
 console.log("scripts attached");
-
-$( document ).ready(function() {
-    console.log( "ready!" );
-    $('#dragIDsweety').draggable()
-});
-
-
 // ********************************************************
 
 
   var buttonsClass= document.getElementsByClassName("buttonClass");
   var pick= document.getElementById("pick");
+  var refresh = document.getElementById("refresh");
   var print= document.getElementById("print");
 
 
@@ -163,29 +157,27 @@ $( document ).ready(function() {
  		seeBackButton.appendChild(buttonText);
 
 
-
  		var uploadButton = document.createElement("input");
  		uploadButton.setAttribute("type", "file");
- 		uploadButton.setAttribute("id", "filetag")
+ 		uploadButton.setAttribute("id", "filetag");
+
+
+
+ 		var imageWrapperDiv = document.createElement("div");
+ 		imageWrapperDiv.setAttribute("id", "imageWrapper");
+ 		cardBackDiv.appendChild(imageWrapperDiv);
+
+
 
  		var imageAttach = document.createElement("img");
  		imageAttach.setAttribute("src", "");
  		imageAttach.setAttribute("id", "preview");
-
-
- 		cardBackDiv.appendChild(uploadButton);
- 		cardBackDiv.appendChild(imageAttach);
+ 		imageWrapperDiv.appendChild(imageAttach);
 
 
 
-
-
-
-
-
-
-
-
+ 		squareMainDiv.appendChild(uploadButton);
+ 		cardBackDiv.appendChild(imageWrapperDiv);
 
 
 
@@ -281,6 +273,8 @@ $( document ).ready(function() {
 		      e.target.parentNode.remove();
 		    });
       });
+
+
 
       $( document ).ready(function() {
         console.log( "ready!" );
@@ -424,7 +418,25 @@ $( document ).ready(function() {
 
 
 
+function startRefresh(){
+	console.log("refresh function")
+	refresh.disabled = false;
 
+	refresh.addEventListener('click', function(e){
+		console.log("refresh clicked");
+		attachCardsDiv.remove();
+		squareMainDiv.remove()
+		roundMainDiv.remove()
+
+	 //  squareCardLayout().remove()
+		// addInputBoxbutton().remove()
+	 //  addListToDom().remove()
+		// uploadImage().remove()
+		pick.disabled = false
+	  print.disabled = false
+	})
+
+}
   
 // **************************main recipe******************************
 
@@ -435,12 +447,12 @@ $( document ).ready(function() {
 
 	  	buttonsClass[i].addEventListener('click', function(event){		
        
-				if(event.target === print){
+				if(event.target === print || event.target === refresh){
 					console.log("pick a card first");
 
 					popUpText.innerHTML = "please pick a div";
 				  mainWbpageDivId.appendChild(popUpText);
-			    document.body.appendChild(mainWbpageDivId);	
+			    // document.body.appendChild(mainWbpageDivId);	
 
 				}
 				else
@@ -448,16 +460,21 @@ $( document ).ready(function() {
 
 					disableButton();	
 					if(pick.disabled = true){
+
+						refresh.disabled = true;
 						print.disabled = true;
 
 						console.log("disable create button or print button");
 						attachTwoCardsOnDom();
-						removeCardFromDom(); 
+						removeCardFromDom();
+						// startRefresh();
 					}
 				}
 
 		  })
 	  }
+
+
 
 
 
