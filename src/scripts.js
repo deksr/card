@@ -4,7 +4,7 @@ console.log("scripts attached");
   var buttonsClass= document.getElementsByClassName("buttonClass");
   var pick= document.getElementById("pick");
   var refresh = document.getElementById("refresh");
-  var print= document.getElementById("print");
+  var printMe= document.getElementById("printMe");
 
 
   var mainWbpageDivId = document.getElementById('mainWbpageDivId')
@@ -26,10 +26,22 @@ console.log("scripts attached");
   var getCardsPanel = document.getElementsByClassName("cardsPanel");
 
 
+  var designRefreshButton = document.createElement("button");
+
+  var imageAttach = document.createElement("img");
+
+  var layoutPrintButton = document.createElement("button");
+
+  var goBackButton = document.createElement("button");
+
+
+
+
+
+
 
 
            // *********squaremain**************
-
 
 
 
@@ -164,9 +176,12 @@ console.log("scripts attached");
  		seeBackButton.appendChild(buttonText);
 
 
+
  		var uploadButton = document.createElement("input");
  		uploadButton.setAttribute("type", "file");
  		uploadButton.setAttribute("id", "filetag");
+    uploadButton.style.display='none'
+
 
 
 
@@ -175,14 +190,24 @@ console.log("scripts attached");
  		cardBackDiv.appendChild(imageWrapperDiv);
 
 
- 		var imageAttach = document.createElement("img");
+
  		imageAttach.setAttribute("src", "");
  		imageAttach.setAttribute("id", "preview");
  		imageWrapperDiv.appendChild(imageAttach);
 
 
+    var buttonText4 = document.createTextNode("Refresh the design");
+    designRefreshButton.setAttribute("id", "refreshButtonId")
+    designRefreshButton.appendChild(buttonText4);
+
+    squareMainDiv.appendChild(designRefreshButton);
+
+
+
+
  		squareMainDiv.appendChild(uploadButton);
  		cardBackDiv.appendChild(imageWrapperDiv);
+
 
 
  		var seeFrontButton = document.createElement("button");
@@ -191,9 +216,14 @@ console.log("scripts attached");
  		seeFrontButton.appendChild(buttonText);
 
 
+
  	  // cardFrontDiv.appendChild(inputTag);//text 
  		squareMainDiv.appendChild(seeBackButton);//button
  		squareMainDiv.appendChild(seeFrontButton);//button
+    seeFrontButton.style.display = "none"
+
+
+
 
 
  		//appending on the dom
@@ -205,6 +235,8 @@ console.log("scripts attached");
     document.body.appendChild(attachCardsDiv);
 
 
+
+
     document.getElementById('rotate-to-back-id').addEventListener('click',function(e){
       console.log("hello there rotate to back button clicked");
 
@@ -213,6 +245,19 @@ console.log("scripts attached");
 
       var bar = document.getElementById('fourC');
       bar.setAttribute("class", "front moon");
+
+      seeFrontButton.style.display = ""
+      seeBackButton.style.display = "none"
+
+      uploadButton.style.display=''
+
+
+
+
+
+
+
+
 
       // document.getElementById('ulDiv').style.display = "none"
       //ul tag disappears
@@ -225,6 +270,17 @@ console.log("scripts attached");
 
       var loo = document.getElementById('fourB');
       loo.classList.remove("sun");//
+
+      seeFrontButton.style.display = "none"
+      seeBackButton.style.display = ""
+
+      uploadButton.style.display='none'
+
+
+
+
+      // document.getElementById('rotate-to-front-id').style.display = 'none';
+
 
       // var bar = document.getElementById('fourC');
       // bar.classList.remove("moon")
@@ -251,15 +307,25 @@ console.log("scripts attached");
 
     function changeImage(input) {
 		  var reader;
+      console.log("sdsjajkajkajlasjd")
 
 		  if (input.files && input.files[0]) {
+
+        console.log(input.files)
+        console.log(input.files[0])
+
 		    reader = new FileReader();
 
 		    reader.onload = function(e) {
 		      preview.setAttribute('src', e.target.result);
+          console.log("s,sammd,as,aas,s,ad,asd,asdlkedlqdlqlqdlqksdlsd")
+          console.log(e.target.result)//image
 		    }
 
 		    reader.readAsDataURL(input.files[0]);
+        console.log(reader.readAsDataURL(input.files[0]))
+        console.log(input.files)
+        console.log(input.files[0])
 		  }
 		}
     
@@ -270,10 +336,17 @@ console.log("scripts attached");
   }//////code directly copy and pasted from the internet
 
 
-  function popuUpText(){
+  function popuUpText1(){
 		popUpText.innerHTML = "please pick a div";
 	  mainWbpageDivId.appendChild(popUpText);
 	}
+
+
+  function popuUpText2(){
+    popUpText.innerHTML = "designa and give print";
+    mainWbpageDivId.appendChild(popUpText);
+
+  }
 
 	function removePopUpText(){
 		popUpText.remove()
@@ -344,10 +417,12 @@ console.log("scripts attached");
   InputBoxbutton.addEventListener('click', function(){
 	  console.log("input Box clicked");
 
-		var inputTagOne = document.createElement("input");
+    var inputTagOne = document.createElement("input");
 	  inputTagOne.setAttribute("type", "text" ,"autofocus");
 	  inputTagOne.setAttribute("value", "your name");
 	  inputTagOne.setAttribute("class", "tagClass")
+    inputTagOne.setAttribute("id", "InputTagId")
+
 
 	  var li=document.createElement('li');
 	 	li.setAttribute("class", "liClass");
@@ -375,6 +450,45 @@ console.log("scripts attached");
       console.log( "ready!" );
       $('#ulDiv').draggable()
     });
+
+  })
+
+
+
+  designRefreshButton.addEventListener('click', function(){
+    console.log("hello there wtf")
+    
+    if(document.body.contains(document.getElementById("ulDiv"))){
+      var liClass = document.querySelectorAll(".liClass");
+      for (var i = 0; i < liClass.length; i++) {
+        liClass[i].remove();
+        console.log("li removed")
+      };
+      console.log("ul div is removed")
+      document.getElementById("ulDiv").remove();   
+    }
+
+    var imgsrc= document.getElementById("preview")
+    console.log(imgsrc)
+
+   console.log(imgsrc.removeAttribute("src")) 
+    imgsrc.setAttribute("src", "")
+    imgsrc.setAttribute("id", "preview");
+
+
+
+
+  })
+
+
+  goBackButton.addEventListener('click', function(){
+    console.log("hello from go back button")
+    document.location.reload(true)
+  })
+  
+  layoutPrintButton.addEventListener('click', function(){
+    console.log("hello from layout print button")
+              window.print()
 
   })
  
@@ -487,58 +601,96 @@ console.log("scripts attached");
 			}	
 
 
-
-
-  	    // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-			if(event.target === refresh){
-			  console.log("refresh button says: pick a card first");
-				popuUpText()
-
-				if(document.body.contains(designButton)){
-				  console.log("design button from refresh is removed")
-	        designButton.remove()
-	        buttonText.remove()     
-				}
-
-				if(document.body.contains(document.getElementById("rotate-to-back-id"))|| document.body.contains(document.getElementById("designButtonId"))){
-          console.log("design button from pick is removed")
-          document.getElementById("rotate-to-back-id").remove();
-          document.getElementById("rotate-to-front-id").remove();
-          document.getElementById("filetag").remove();
-          document.getElementById("createInputText").remove();
-          buttonText2.remove() 
-        }
-
-        if(document.body.contains(document.getElementById("ulDiv"))){
-        	var liClass = document.querySelectorAll(".liClass");
-        	for (var i = 0; i < liClass.length; i++) {
-        		liClass[i].remove();
-        		console.log("li removed")
-        	};
-        	console.log("ul div is removed")
-        	 document.getElementById("ulDiv").remove();   
-        }
-
-				if(document.body.contains(attachCardsDiv)){
-				  console.log("attach card div is removed")
-				  attachCardsDiv.remove()
-				  // buttonText.remove()     
-
-				}
-		  }
-
+			
 
 
 	      // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 	       
 
-		  if(event.target === print){
-				console.log("print button says: pick a card first");
-				popuUpText()
+		  if(event.target === printMe){
+
+        if(document.getElementById("attachCardsDiv") === undefined || document.getElementById("attachCardsDiv")=== null ){
+          console.log("print button says: pick a card first");
+          popuUpText1()
+
+        }
+
+
+        //if there is nothing on the dom 
+        if(document.body.contains(document.getElementById("attachCardsDiv"))){
+          console.log("print button is clicked")
+          console.log("design and give print");
+          popuUpText2()
+
+          function removepopup(){
+            removePopUpText()
+            console.log("set time out clicked")
+          }
+
+          setTimeout(removepopup, 2000)
+        }
+
+
+        if(document.body.contains(document.getElementById("ulDiv"))){
+          console.log("print this")
+
+          if(document.body.contains(document.getElementById("rotate-to-back-id"))){
+            console.log("design button from pick is removed")
+            document.getElementById("rotate-to-back-id").remove();
+            document.getElementById("rotate-to-front-id").remove();
+            document.getElementById("createInputText").remove();
+            document.getElementById("refreshButtonId").remove()
+            buttonText2.remove()
+
+
+            var removeButtonFromPrint = document.querySelectorAll(".deleteButton");
+            for (var i = 0; i < removeButtonFromPrint.length; i++) {
+              removeButtonFromPrint[i].remove()
+            };
+
+
+            //add back facing card
+            squareMainDiv.appendChild(cardFrontDiv)
+            squareMainDiv.appendChild(cardBackDiv)
+            attachCardsDiv.appendChild(squareMainDiv);
+            classBDiv.remove()
+            classADiv.remove()
+  
+            //add another print button for window .print
+            var buttonText8 = document.createTextNode("print back and front");
+            layoutPrintButton.setAttribute("id", "layoutPrintButtonId");
+            layoutPrintButton.appendChild(buttonText8);//to see front button
+            document.body.appendChild(layoutPrintButton);
+
+
+
+            // add back button to go back to the pick cards
+
+            var buttonText9 = document.createTextNode("go back to main page");
+            goBackButton.setAttribute("id", "goBackButtonId");
+            goBackButton.appendChild(buttonText9);//to see front button
+            document.body.appendChild(goBackButton);
+
+
+            var allInputTagforPrint = document.querySelectorAll(".tagClass");
+            for (var i = 0; i < allInputTagforPrint.length; i++) {
+              allInputTagforPrint[i].disabled = true;
+            };
+
+            
+
+
+            cardFrontDiv.style.cursor = 'none';//cursor doesnt move
+            cardBackDiv.style.cursor = 'none';//cusrsor doesnt move
+            document.getElementById("filetag").remove();
+
+
+              
+            document.getElementById('mainWbpageDivId').remove()
+
+          }
+        }
 			}
 
 
@@ -563,6 +715,8 @@ console.log("scripts attached");
 		console.log("wtf")
 	}
 
+
+  
 
 
 
