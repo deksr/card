@@ -192,107 +192,89 @@
 
   /********class for round********/ 
 
-  .back2{
-    background-color: yellow;
-    cursor: pointer;
-    width: 270px; 
-    height: 270px; 
-    border-radius: 20px;
-  }
-
-
-
   .front2{
     background-color: orange;
     width: 270px; 
     height: 270px; 
     cursor: pointer;
     border-radius: 20px;
-  }
-
-
-
-  /*.classA { 
-    width: 270px; 
-    height: 270px;
-    perspective: 1000px; 
-    position: relative;
-    margin-top:7px;
-    margin-left:25px;
-    margin-right: 25px;
-    left:1%;
-    background-color: blue;
   } 
 
 
-  .classB {
+
+
+  .back2{
+    background-color: green;
     width: 270px; 
-    height: 270px;
-    transition: transform 1.5s; 
-    transform-style: preserve-3d; 
-    -webkit-transform-origin: 50% 50%;
-    position: absolute;
-    bottom: 10px;
-    right: 7px;
-  }*/
-
-
-  /*.classB {
-    height: 100%;
-    width: 100%;
-    position: absolute; 
-    backface-visibility: hidden;
+    height: 270px; 
+    cursor: pointer;
+    border-radius: 20px;
   }
-*/
 
-  .front2{
+
+  .classB .front2{
     height: 100%;
     width: 100%;
     position: absolute; /*this flips on the same side*/
     backface-visibility: hidden;
+
   }
 
 
-
-
-  .back2 {
-    transform: rotateY(180deg);    
-
-
+  .classA .back2{
+    transform: rotateY(180deg);
+    position: relative;
+    backface-visibility: hidden;
   } 
 
 
 
-  .front2 {
+ .classA .front {
     width: 270px; height: 270px; 
   } 
 
 
 
-li{
-  display: list-item;
 
-}
-
-
+  .sun {
+    transform: rotateY( 180deg );
+  }
 
 
 
-input {
-  border: 0;
-  outline: 0;
-  background: transparent;
-  border-bottom: 1px solid black;
-}
+  .moon {
+    transform: rotateY(0deg );
+  }
 
 
 
-#preview{
-  max-width: 100%;
-  max-height: 100%;
-}
 
-#imageWrapper{
-  height: 270px;
-  width: 270px;
-}
+
+
+  li{
+    display: list-item;
+
+  }
+
+
+
+
+
+  input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+  }
+
+
+
+  #preview{
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  #imageWrapper{
+    height: 270px;
+    width: 270px;
+  }
