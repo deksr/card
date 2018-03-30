@@ -456,10 +456,6 @@ console.log("scripts attached");
       addInputBoxbutton();
       uploadImage();
 
-
-
-
-      //ready to design button dissapears
     }
 
 		
@@ -564,16 +560,6 @@ console.log("scripts attached");
  
 
     
-// *********************************round card layout*******************************
-
-
-
-
-
-
-	
-
-
   
 // **************************main recipe******************************
 
@@ -624,8 +610,6 @@ console.log("scripts attached");
 
 
 			
-
-
 	   // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 	       
@@ -739,21 +723,6 @@ console.log("scripts attached");
 
         }
 
-
-
-
-
-
-
-
-
-
-
-        // if(document.body.contains(document.getElementById("ulDiv"))){
-        //   console.log("print this")
-
-          
-        // }
 			}
 
 			// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
