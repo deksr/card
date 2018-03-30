@@ -15,6 +15,17 @@ console.log("scripts attached");
   var buttonText = document.createTextNode("Ready To design");
 
 
+  var seeBackButton = document.createElement("button");
+  var buttonText5 = document.createTextNode("Rotate to see Back");
+
+  var seeFrontButton = document.createElement("button");
+  var buttonText7 = document.createTextNode("Rotate to see Front");
+
+  var uploadButton = document.createElement("input");
+  var imageWrapperDiv = document.createElement("div");
+
+
+
   var InputBoxbutton = document.createElement("button");
 	var buttonText2 = document.createTextNode("create Input text");
 
@@ -24,9 +35,10 @@ console.log("scripts attached");
 
 
   var getCardsPanel = document.getElementsByClassName("cardsPanel");
-
-
+  
   var designRefreshButton = document.createElement("button");
+  var buttonText4 = document.createTextNode("Refresh the design");
+
 
   var imageAttach = document.createElement("img");
 
@@ -38,10 +50,7 @@ console.log("scripts attached");
 
 
 
-
-
-
-           // *********squaremain**************
+// ***********************squaremain************************************
 
 
 
@@ -85,7 +94,7 @@ console.log("scripts attached");
 
 
 
-	         // *********roundmain**************
+// ********************************roundmain****************************
 
 
   var roundMainDiv = document.createElement("div");
@@ -157,9 +166,94 @@ console.log("scripts attached");
   	console.log("input box function called")
  		InputBoxbutton.setAttribute("id", "createInputText")
  		InputBoxbutton.appendChild(buttonText2);
- 		squareMainDiv.appendChild(InputBoxbutton)
- 		attachCardsDiv.appendChild(squareMainDiv);
+ 		
  		// document.body.appendChild(attachCardsDiv);
+  }
+
+
+
+
+  function cardTools(){
+
+    seeBackButton.setAttribute("id", "rotate-to-back-id")
+    seeBackButton.appendChild(buttonText5);
+
+
+    seeFrontButton.setAttribute("id", "rotate-to-front-id")
+    seeFrontButton.appendChild(buttonText7);
+
+
+
+    uploadButton.setAttribute("type", "file");
+    uploadButton.setAttribute("id", "filetag");
+    uploadButton.style.display='none'
+
+
+
+
+    imageWrapperDiv.setAttribute("id", "imageWrapper");
+    cardBackDiv.appendChild(imageWrapperDiv);
+
+
+
+    imageAttach.setAttribute("src", "");
+    imageAttach.setAttribute("id", "preview");
+    imageWrapperDiv.appendChild(imageAttach);
+
+    designRefreshButton.setAttribute("id", "refreshButtonId")
+    designRefreshButton.appendChild(buttonText4);
+
+  }
+
+
+
+
+  function flippyStyle(){
+
+    document.getElementById('rotate-to-back-id').addEventListener('click',function(e){
+      console.log("hello there rotate to back button clicked");
+
+      var loo = document.getElementById('fourB');
+      loo.setAttribute("class", "classB sun");//
+
+      
+
+      if(document.body.contains(squareMainDiv)){
+        var bar = document.getElementById('fourC');
+        bar.setAttribute("class", "front moon");
+      }
+
+
+      if(document.body.contains(roundMainDiv)){
+        var bar = document.getElementById('fourC');
+        bar.setAttribute("class", "front2 moon");
+      }
+
+
+
+
+
+      seeFrontButton.style.display = ""
+      seeBackButton.style.display = "none"
+
+      uploadButton.style.display = ''
+
+    })
+
+
+
+    document.getElementById('rotate-to-front-id').addEventListener('click',function(){
+      console.log("hello there rotate to front button clicked");
+
+      var loo = document.getElementById('fourB');
+      loo.classList.remove("sun");//
+
+      seeFrontButton.style.display = "none"
+      seeBackButton.style.display = ""
+
+      uploadButton.style.display='none'
+
+    })
   }
 
 
@@ -169,61 +263,24 @@ console.log("scripts attached");
 	function squareCardTools() {
 		console.log("hi from squareCardTools() function")
 
-	
-    var seeBackButton = document.createElement("button");
- 		var buttonText = document.createTextNode("Rotate to see Back");
- 		seeBackButton.setAttribute("id", "rotate-to-back-id")
- 		seeBackButton.appendChild(buttonText);
-
-
-
- 		var uploadButton = document.createElement("input");
- 		uploadButton.setAttribute("type", "file");
- 		uploadButton.setAttribute("id", "filetag");
-    uploadButton.style.display='none'
-
-
-
-
- 		var imageWrapperDiv = document.createElement("div");
- 		imageWrapperDiv.setAttribute("id", "imageWrapper");
- 		cardBackDiv.appendChild(imageWrapperDiv);
-
-
-
- 		imageAttach.setAttribute("src", "");
- 		imageAttach.setAttribute("id", "preview");
- 		imageWrapperDiv.appendChild(imageAttach);
-
-
-    var buttonText4 = document.createTextNode("Refresh the design");
-    designRefreshButton.setAttribute("id", "refreshButtonId")
-    designRefreshButton.appendChild(buttonText4);
-
+    cardTools()
+    
     squareMainDiv.appendChild(designRefreshButton);
-
-
-
-
  		squareMainDiv.appendChild(uploadButton);
  		cardBackDiv.appendChild(imageWrapperDiv);
-
-
-
- 		var seeFrontButton = document.createElement("button");
- 		var buttonText = document.createTextNode("Rotate to see Front");
- 		seeFrontButton.setAttribute("id", "rotate-to-front-id")
- 		seeFrontButton.appendChild(buttonText);
 
 
 
  	  // cardFrontDiv.appendChild(inputTag);//text 
  		squareMainDiv.appendChild(seeBackButton);//button
  		squareMainDiv.appendChild(seeFrontButton);//button
+
+
+    squareMainDiv.appendChild(InputBoxbutton)
+    attachCardsDiv.appendChild(squareMainDiv);
+
+
     seeFrontButton.style.display = "none"
-
-
-
 
 
  		//appending on the dom
@@ -234,62 +291,44 @@ console.log("scripts attached");
     attachCardsDiv.appendChild(squareMainDiv)
     document.body.appendChild(attachCardsDiv);
 
+    flippyStyle()  
+  }
 
 
+  function roundCardTools(){
+    console.log("hi from roundCardTools() function")
 
-    document.getElementById('rotate-to-back-id').addEventListener('click',function(e){
-      console.log("hello there rotate to back button clicked");
+    cardTools()
 
-      var loo = document.getElementById('fourB');
-      loo.setAttribute("class", "classB sun");//
-
-      var bar = document.getElementById('fourC');
-      bar.setAttribute("class", "front moon");
-
-      seeFrontButton.style.display = ""
-      seeBackButton.style.display = "none"
-
-      uploadButton.style.display=''
+    roundMainDiv.appendChild(designRefreshButton);
+    roundMainDiv.appendChild(uploadButton);
+    cardBackDiv2.appendChild(imageWrapperDiv);
 
 
+    // cardFrontDiv.appendChild(inputTag);//text 
+    roundMainDiv.appendChild(seeBackButton);//button
+    roundMainDiv.appendChild(seeFrontButton);//button
+    
 
+    roundMainDiv.appendChild(InputBoxbutton)
+    attachCardsDiv.appendChild(roundMainDiv);
 
-
-
-
-
-
-      // document.getElementById('ulDiv').style.display = "none"
-      //ul tag disappears
-    })
-
-
-
-    document.getElementById('rotate-to-front-id').addEventListener('click',function(){
-     console.log("hello there rotate to front button clicked");
-
-      var loo = document.getElementById('fourB');
-      loo.classList.remove("sun");//
-
-      seeFrontButton.style.display = "none"
-      seeBackButton.style.display = ""
-
-      uploadButton.style.display='none'
+    
+    seeFrontButton.style.display = "none"
 
 
 
 
-      // document.getElementById('rotate-to-front-id').style.display = 'none';
+    classBDiv2.appendChild(cardFrontDiv2)
+    classBDiv2.appendChild(cardBackDiv2)
+    classADiv2.appendChild(classBDiv2)
+    roundMainDiv.appendChild(classADiv2);
+    attachCardsDiv.appendChild(roundMainDiv)
+    document.body.appendChild(attachCardsDiv);
 
 
-      // var bar = document.getElementById('fourC');
-      // bar.classList.remove("moon")
 
-      // ul tag appears
-      // document.getElementById('ulDiv').style.display = 'block'
-
-    })
-
+    flippyStyle()
   }
 
 
@@ -307,7 +346,7 @@ console.log("scripts attached");
 
     function changeImage(input) {
 		  var reader;
-      console.log("sdsjajkajkajlasjd")
+      console.log("this is changeImage function")
 
 		  if (input.files && input.files[0]) {
 
@@ -334,6 +373,9 @@ console.log("scripts attached");
     });	
 
   }//////code directly copy and pasted from the internet
+
+
+
 
 
   function popuUpText1(){
@@ -370,7 +412,7 @@ console.log("scripts attached");
 		var roundClick =  document.getElementById("roundMainID");
 
     if(event.target.parentNode.parentNode.parentNode === squareClick){
-    	console.log(event.target.parentNode.parentNode.parentNode)
+    	// console.log(event.target.parentNode.parentNode.parentNode)
 		  console.log("squareMain clicked");
 			roundMainDiv.remove();
 			readyToDesign();
@@ -393,16 +435,34 @@ console.log("scripts attached");
   }
 
 
-  // **************************dom event handlers******************************
+// **************************dom event handlers******************************
 
 	designButton.addEventListener('click', function(){
-		console.log("designButton clicked")
-		squareCardTools();
-		addInputBoxbutton()
-		// addListToDom()
-		uploadImage()
-		//ready to design button dissapears
 
+    if(document.body.contains(squareMainDiv)){
+      console.log("square main div is present");
+      console.log("designButton clicked")
+      squareCardTools();
+      addInputBoxbutton();
+      uploadImage();
+      //ready to design button dissapears
+    }
+
+
+    if(document.body.contains(roundMainDiv)){
+      console.log("round main div is present");
+      console.log("designButton clicked")
+      roundCardTools();//????????????      
+      addInputBoxbutton();
+      uploadImage();
+
+
+
+
+      //ready to design button dissapears
+    }
+
+		
 		if(document.body.contains(designButton)){
 			console.log("design button is removed")
 	    designButton.remove()
@@ -423,6 +483,8 @@ console.log("scripts attached");
 	  inputTagOne.setAttribute("class", "tagClass")
     inputTagOne.setAttribute("id", "InputTagId")
 
+    console.log("wtf")
+
 
 	  var li=document.createElement('li');
 	 	li.setAttribute("class", "liClass");
@@ -438,7 +500,14 @@ console.log("scripts attached");
 
 	 	li.appendChild(removeButton)
     ul.appendChild(li);
-    (cardFrontDiv).appendChild(ul);
+
+    if(document.body.contains(squareMainDiv)){
+     (cardFrontDiv).appendChild(ul);
+    }
+
+    if(document.body.contains(roundMainDiv)){
+      (cardFrontDiv2).appendChild(ul);
+    }
 
     document.querySelectorAll(".deleteButton").forEach(function(btn) {
 	    btn.addEventListener('click', function(e){
@@ -474,17 +543,18 @@ console.log("scripts attached");
    console.log(imgsrc.removeAttribute("src")) 
     imgsrc.setAttribute("src", "")
     imgsrc.setAttribute("id", "preview");
-
-
-
-
   })
+
+
 
 
   goBackButton.addEventListener('click', function(){
     console.log("hello from go back button")
     document.location.reload(true)
   })
+
+
+
   
   layoutPrintButton.addEventListener('click', function(){
     console.log("hello from layout print button")
@@ -494,61 +564,11 @@ console.log("scripts attached");
  
 
     
-  // **************************round card layout*****************************
+// *********************************round card layout*******************************
 
 
 
-	function roundCardLayout(){
 
-		var inputTag = document.createElement("INPUT");
-    inputTag.setAttribute("type", "text" ,"autofocus");
-    inputTag.setAttribute("value", "your name");
-
-    var seeBackButton = document.createElement("button");
- 		var buttonText = document.createTextNode("Rotate to see Back");	 		
- 		seeBackButton.setAttribute("id", "rotate-to-back-id")
- 		seeBackButton.appendChild(buttonText);//to see front button
-
- 		var seeFrontButton = document.createElement("button");
- 		var buttonText = document.createTextNode("Rotate to see Front");	 		
- 		seeFrontButton.setAttribute("id", "rotate-to-front-id")
- 		seeFrontButton.appendChild(buttonText);//to see front button
-
-
- 		cardFrontDiv2.appendChild(inputTag);//text 
- 		cardFrontDiv2.appendChild(seeBackButton);//button
- 		cardBackDiv2.appendChild(seeFrontButton);//button
-
-
-    classBDiv2.appendChild(cardFrontDiv2)
-    classBDiv2.appendChild(cardBackDiv2)
-    classADiv2.appendChild(classBDiv2)
-    roundMainDiv.appendChild(classADiv2);
-    attachCardsDiv.appendChild(roundMainDiv)
-    document.body.appendChild(attachCardsDiv);
-
-
-
-    document.getElementById('rotate-to-back-id').addEventListener('click',function(){
-     console.log("hello there rotate to back button clicked");
-
-      var loo = document.getElementById('fourB');
-      loo.setAttribute("class", "classB sun");
-
-      var bar = document.getElementById('fourC');
-      bar.setAttribute("class", "front2 moon");
-
-    })
-
-
-    document.getElementById('rotate-to-front-id').addEventListener('click',function(){
-     console.log("hello there rotate to front button clicked");
-
-      var loo = document.getElementById('fourB');
-      loo.classList.remove("sun");
-
-    })
-	}
 
 
 	
@@ -585,6 +605,8 @@ console.log("scripts attached");
           document.getElementById("rotate-to-front-id").remove();
           document.getElementById("filetag").remove();
           document.getElementById("createInputText").remove();
+          document.getElementById("refreshButtonId").remove()
+
           buttonText2.remove() 
         }
 
@@ -604,7 +626,7 @@ console.log("scripts attached");
 			
 
 
-	      // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	   // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 	       
 
@@ -632,70 +654,109 @@ console.log("scripts attached");
         }
 
 
-        if(document.body.contains(document.getElementById("ulDiv"))){
-          console.log("print this")
 
-          if(document.body.contains(document.getElementById("rotate-to-back-id"))){
-            console.log("design button from pick is removed")
-            document.getElementById("rotate-to-back-id").remove();
-            document.getElementById("rotate-to-front-id").remove();
-            document.getElementById("createInputText").remove();
-            document.getElementById("refreshButtonId").remove()
-            buttonText2.remove()
-
-
-            var removeButtonFromPrint = document.querySelectorAll(".deleteButton");
-            for (var i = 0; i < removeButtonFromPrint.length; i++) {
-              removeButtonFromPrint[i].remove()
-            };
+          function printCriteria(){
+            if(document.body.contains(document.getElementById("rotate-to-back-id"))){
+              console.log("design button from pick is removed")
+              document.getElementById("rotate-to-back-id").remove();
+              document.getElementById("rotate-to-front-id").remove();
+              document.getElementById("createInputText").remove();
+              document.getElementById("refreshButtonId").remove()
+              buttonText2.remove()
 
 
-            //add back facing card
-            squareMainDiv.appendChild(cardFrontDiv)
-            squareMainDiv.appendChild(cardBackDiv)
-            attachCardsDiv.appendChild(squareMainDiv);
-            classBDiv.remove()
-            classADiv.remove()
-  
-            //add another print button for window .print
-            var buttonText8 = document.createTextNode("print back and front");
-            layoutPrintButton.setAttribute("id", "layoutPrintButtonId");
-            layoutPrintButton.appendChild(buttonText8);//to see front button
-            document.body.appendChild(layoutPrintButton);
+              var removeButtonFromPrint = document.querySelectorAll(".deleteButton");
+              for (var i = 0; i < removeButtonFromPrint.length; i++) {
+                removeButtonFromPrint[i].remove()
+              };
+
+
+              //add back facing card
+              if(document.body.contains(squareMainDiv)){
+                squareMainDiv.appendChild(cardFrontDiv)
+                squareMainDiv.appendChild(cardBackDiv)
+                attachCardsDiv.appendChild(squareMainDiv);
+                classBDiv.remove()
+                classADiv.remove()
+              }
+
+              if(document.body.contains(roundMainDiv)){
+                roundMainDiv.appendChild(cardFrontDiv2)
+                roundMainDiv.appendChild(cardBackDiv2)
+                attachCardsDiv.appendChild(roundMainDiv);
+                classBDiv2.remove()
+                classADiv2.remove()
+                cardFrontDiv2.style.cursor = 'none';//cursor doesnt move
+                cardBackDiv2.style.cursor = 'none';//cusrsor doesnt move
+              }
+              
+    
+              //add another print button for window .print
+              var buttonText8 = document.createTextNode("print back and front");
+              layoutPrintButton.setAttribute("id", "layoutPrintButtonId");
+              layoutPrintButton.appendChild(buttonText8);//to see front button
+              document.body.appendChild(layoutPrintButton);
 
 
 
-            // add back button to go back to the pick cards
+              // add back button to go back to the pick cards
 
-            var buttonText9 = document.createTextNode("go back to main page");
-            goBackButton.setAttribute("id", "goBackButtonId");
-            goBackButton.appendChild(buttonText9);//to see front button
-            document.body.appendChild(goBackButton);
-
-
-            var allInputTagforPrint = document.querySelectorAll(".tagClass");
-            for (var i = 0; i < allInputTagforPrint.length; i++) {
-              allInputTagforPrint[i].disabled = true;
-            };
-
-            
+              var buttonText9 = document.createTextNode("go back to main page");
+              goBackButton.setAttribute("id", "goBackButtonId");
+              goBackButton.appendChild(buttonText9);//to see front button
+              document.body.appendChild(goBackButton);
 
 
-            cardFrontDiv.style.cursor = 'none';//cursor doesnt move
-            cardBackDiv.style.cursor = 'none';//cusrsor doesnt move
-            document.getElementById("filetag").remove();
-
+              var allInputTagforPrint = document.querySelectorAll(".tagClass");
+              for (var i = 0; i < allInputTagforPrint.length; i++) {
+                allInputTagforPrint[i].disabled = true;
+              };
 
               
-            document.getElementById('mainWbpageDivId').remove()
 
-          }
+              cardFrontDiv.style.cursor = 'none';//cursor doesnt move
+              cardBackDiv.style.cursor = 'none';//cusrsor doesnt move
+              document.getElementById("filetag").remove();
+
+
+                
+              document.getElementById('mainWbpageDivId').remove()
+            }
+          } 
+
+
+        if(document.body.contains(squareMainDiv)){
+          printCriteria();
+          console.log("hi from print squareMainDiv says remove roundMainDiv")
+          roundMainDiv.remove()
+
         }
+
+        if(document.body.contains(roundMainDiv)){
+          printCriteria()
+          console.log("hi from print roundMainDiv says remove squareMainDiv")
+          squareMainDiv.remove()
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        // if(document.body.contains(document.getElementById("ulDiv"))){
+        //   console.log("print this")
+
+          
+        // }
 			}
 
-
-
-				// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+			// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 		})
 	}
@@ -704,11 +765,10 @@ console.log("scripts attached");
 
 
 
-
-
-
 // ********************************************************
-	if(document.getElementById("attachCardsDiv")){
+	
+
+  if(document.getElementById("attachCardsDiv")){
 		console.log("hello")
 	}
 	else{
