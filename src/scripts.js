@@ -11,8 +11,16 @@ console.log("scripts attached");
 	var popUpText = document.createElement("div");
 
 
+  var allButtonsDivWrapper = document.createElement("div");
+  allButtonsDivWrapper.setAttribute("id", "allButtonsDivWrapperId");//not used
+  allButtonsDivWrapper.setAttribute("class", "placeSideBySide"); 
+ 
+
+
   var designButton = document.createElement("button");
-  var buttonText = document.createTextNode("Ready To design");
+  var buttonText = document.createTextNode("Design");
+  var designSpanButton = document.createElement("span");
+
 
 
   var seeBackButton = document.createElement("button");
@@ -30,8 +38,80 @@ console.log("scripts attached");
 	var buttonText2 = document.createTextNode("create Input text");
 
 
+
+
+
+  var PopUpTextForDraggable = document.createElement("div");
+  PopUpTextForDraggable.setAttribute("class", "PopUpTextForDraggableClass"); 
+
+
+  var dragArrowElement = document.createElement("li");
+  dragArrowElement.setAttribute('id', "draggArrowId");
+
+  
+
+  var dragFont = document.createElement('i');
+  dragFont.setAttribute("class", "fa fa-arrows-alt");
+
+
+  var heartBeatFont = document.createElement('i');
+  heartBeatFont.setAttribute("class", "fa fa-heart heartBeat");
+  heartBeatFont.setAttribute("id", "heartBeatId");
+
+
+
+
+
+
+
+
+
+  var selectTag = document.createElement("select");
+  selectTag.setAttribute("id", "fontSelectId");
+  selectTag.setAttribute("class", "buttonBlockStyle");
+
+
+
+  var optionTagOne = document.createElement("option");
+  optionTagOne.setAttribute("value", "Jaldi");
+  optionTagOne.textContent = "Jaldi";
+ 
+
+  var optionTagTwo = document.createElement("option");
+  optionTagTwo.setAttribute("value", "Kite One"); 
+  optionTagTwo.textContent = "Kite";
+
+
+  var optionTagThree = document.createElement("option");
+  optionTagThree.setAttribute("value", "Nanum Myeongjo");
+  optionTagThree.textContent = "Nanum";
+ 
+
+  var optionTagFour = document.createElement("option");
+  optionTagFour.setAttribute("value", "Allerta Stencil");
+  optionTagFour.textContent = "Stencil";
+ 
+
+  var optionTagFive = document.createElement("option");
+  optionTagFive.setAttribute("value", "Text Me One");
+  optionTagFive.textContent = "TextMe";
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
   var ul=document.createElement('ul');
   ul.setAttribute("id", "ulDiv");
+
 
 
   var getCardsPanel = document.getElementsByClassName("cardsPanel");
@@ -45,6 +125,8 @@ console.log("scripts attached");
   var layoutPrintButton = document.createElement("button");
 
   var goBackButton = document.createElement("button");
+
+
 
 
 
@@ -65,7 +147,7 @@ console.log("scripts attached");
 
 
 	var classADiv = document.createElement("div");
-	classADiv.setAttribute("class", "classA"); 
+	classADiv.setAttribute("class", "classA placeSideBySide"); 
   classADiv.setAttribute("id", "fourA"); 
 
 
@@ -75,8 +157,9 @@ console.log("scripts attached");
 
 
 	var cardFrontDiv = document.createElement("div");//class .front is orange color
-	cardFrontDiv.setAttribute("class", "front");
-	cardFrontDiv.setAttribute("id", "fourC"); 
+	cardFrontDiv.setAttribute("class", "front boxShadowClassSquare");
+	cardFrontDiv.setAttribute("id", "fourC");
+
 
 
 	var tinyDivFront = document.createElement("div");
@@ -110,12 +193,13 @@ console.log("scripts attached");
 
 	var classBDiv2 = document.createElement("div");
 	classBDiv2.setAttribute("class", "classB"); 
-	classBDiv2.setAttribute("id", "fourB"); 
+	classBDiv2.setAttribute("id", "fourB2"); 
 
 
 	var cardFrontDiv2 = document.createElement("div");
-	cardFrontDiv2.setAttribute("class", "front2"); 
+	cardFrontDiv2.setAttribute("class", "front2 boxShadowClassRound"); 
 	cardFrontDiv2.setAttribute("id", "fourC"); 
+
 
 
 
@@ -165,7 +249,9 @@ console.log("scripts attached");
   function addInputBoxbutton(e){
   	console.log("input box function called")
  		InputBoxbutton.setAttribute("id", "createInputText")
+    InputBoxbutton.setAttribute("class", "buttonBlockStyle");
  		InputBoxbutton.appendChild(buttonText2);
+    console.log("Input box button is created")
  		
  		// document.body.appendChild(attachCardsDiv);
   }
@@ -175,18 +261,47 @@ console.log("scripts attached");
 
   function cardTools(){
 
+
     seeBackButton.setAttribute("id", "rotate-to-back-id")
+    console.log("I'm back side being called")
+
+    selectTag.appendChild(optionTagFive)
+    selectTag.appendChild(optionTagFour)
+    selectTag.appendChild(optionTagThree)
+    selectTag.appendChild(optionTagTwo)
+    selectTag.appendChild(optionTagOne)
+
+
+
+    seeBackButton.setAttribute("class", "buttonBlockStyle")
     seeBackButton.appendChild(buttonText5);
+    seeBackButton.style.display = ""//original-code: we are displaying back button on the front.
 
 
     seeFrontButton.setAttribute("id", "rotate-to-front-id")
+    console.log("I'm front being called")
+    seeFrontButton.setAttribute("class", "buttonBlockStyle")
     seeFrontButton.appendChild(buttonText7);
+    seeFrontButton.style.display = "none" //original-code: dont diaply see front button yet
+
+
+
+    InputBoxbutton.style.display='' //original-code: display input box button on dom
+
+
+
+  
+    designRefreshButton.setAttribute("id", "refreshButtonId")
+    designRefreshButton.appendChild(buttonText4);
+    designRefreshButton.setAttribute("class", "buttonBlockStyle");
+
 
 
 
     uploadButton.setAttribute("type", "file");
     uploadButton.setAttribute("id", "filetag");
-    uploadButton.style.display='none'
+    uploadButton.setAttribute("class", "buttonBlockStyle");
+    uploadButton.style.display='none'//original-code: upload is not displayed on dom still
 
 
 
@@ -198,10 +313,13 @@ console.log("scripts attached");
 
     imageAttach.setAttribute("src", "");
     imageAttach.setAttribute("id", "preview");
+    imageAttach.setAttribute("class", "buttonBlockStyle");
     imageWrapperDiv.appendChild(imageAttach);
 
-    designRefreshButton.setAttribute("id", "refreshButtonId")
-    designRefreshButton.appendChild(buttonText4);
+
+
+    
+
 
   }
 
@@ -213,31 +331,36 @@ console.log("scripts attached");
     document.getElementById('rotate-to-back-id').addEventListener('click',function(e){
       console.log("hello there rotate to back button clicked");
 
-      var loo = document.getElementById('fourB');
-      loo.setAttribute("class", "classB sun");//
 
-      
 
       if(document.body.contains(squareMainDiv)){
         var bar = document.getElementById('fourC');
         bar.setAttribute("class", "front moon");
+
+        var loo = document.getElementById('fourB');
+        loo.setAttribute("class", "classB sun");//
       }
 
 
       if(document.body.contains(roundMainDiv)){
-        var bar = document.getElementById('fourC');
-        bar.setAttribute("class", "front2 moon");
+        // var bar = document.getElementById('fourC');
+        // bar.setAttribute("class", "front2 moon");
+        var loo2 = document.getElementById('fourB2');
+        loo2.setAttribute("class", "classB sun");
       }
+  
 
 
+      seeFrontButton.style.display = "" //original -code:
+      seeBackButton.style.display = "none"// original -code: none means css style is taken out on the otehr side and the back button is not displayed
+
+      uploadButton.style.display = ''// original -code:shows button on the other side on click
+      InputBoxbutton.style.display='none' //original -code:
+
+      //create input text dissapears
 
 
-
-      seeFrontButton.style.display = ""
-      seeBackButton.style.display = "none"
-
-      uploadButton.style.display = ''
-
+     
     })
 
 
@@ -245,13 +368,26 @@ console.log("scripts attached");
     document.getElementById('rotate-to-front-id').addEventListener('click',function(){
       console.log("hello there rotate to front button clicked");
 
-      var loo = document.getElementById('fourB');
-      loo.classList.remove("sun");//
+      if(document.body.contains(squareMainDiv)){
+        var loo = document.getElementById('fourB');
+        loo.classList.remove("sun");//
+      }
 
-      seeFrontButton.style.display = "none"
-      seeBackButton.style.display = ""
+      if(document.body.contains(roundMainDiv)){
+        var loo2 = document.getElementById('fourB2');
+        loo2.classList.remove("sun");//
+      }
 
-      uploadButton.style.display='none'
+
+
+
+      seeFrontButton.style.display = "none" //original -code:
+      seeBackButton.style.display = ""//original -code:
+
+      uploadButton.style.display='none'//original -code:
+      InputBoxbutton.style.display=''//original -code:
+
+
 
     })
   }
@@ -263,24 +399,32 @@ console.log("scripts attached");
 	function squareCardTools() {
 		console.log("hi from squareCardTools() function")
 
-    cardTools()
+    cardTools();
+
+
+    // var refreshButtonId = document.getElementById("refreshButtonId") 
+    // refreshButtonId.parentNode.insertBefore(lineBreak,refreshButtonId.nextSibling)
+
+
+    //
+
+
+
+    allButtonsDivWrapper.appendChild(selectTag)//original-code
+
+    cardBackDiv.appendChild(imageWrapperDiv);
     
-    squareMainDiv.appendChild(designRefreshButton);
- 		squareMainDiv.appendChild(uploadButton);
- 		cardBackDiv.appendChild(imageWrapperDiv);
+
+    allButtonsDivWrapper.appendChild(seeBackButton);//button 
+    allButtonsDivWrapper.appendChild(seeFrontButton);//button //original -code:
 
 
-
- 	  // cardFrontDiv.appendChild(inputTag);//text 
- 		squareMainDiv.appendChild(seeBackButton);//button
- 		squareMainDiv.appendChild(seeFrontButton);//button
-
-
-    squareMainDiv.appendChild(InputBoxbutton)
-    attachCardsDiv.appendChild(squareMainDiv);
+    allButtonsDivWrapper.appendChild(designRefreshButton); 
+    allButtonsDivWrapper.appendChild(InputBoxbutton)
+    allButtonsDivWrapper.appendChild(uploadButton);//original -code:
 
 
-    seeFrontButton.style.display = "none"
+    // seeFrontButton.style.display = "none"////<<<<<<?????????>>>>>>>>
 
 
  		//appending on the dom
@@ -291,8 +435,15 @@ console.log("scripts attached");
     attachCardsDiv.appendChild(squareMainDiv)
     document.body.appendChild(attachCardsDiv);
 
+    attachCardsDiv.appendChild(allButtonsDivWrapper);
+
+
+
     flippyStyle()  
   }
+
+
+
 
 
   function roundCardTools(){
@@ -314,7 +465,7 @@ console.log("scripts attached");
     attachCardsDiv.appendChild(roundMainDiv);
 
     
-    seeFrontButton.style.display = "none"
+    // seeFrontButton.style.display = "none"
 
 
 
@@ -387,21 +538,52 @@ console.log("scripts attached");
   function popuUpText2(){
     popUpText.innerHTML = "designa and give print";
     mainWbpageDivId.appendChild(popUpText);
-
   }
+
 
 	function removePopUpText(){
 		popUpText.remove()
-		 console.log("popup removed");
+		console.log("popup removed");
 	}
+
+
+  function draggablePopUp(){
+    PopUpTextForDraggable.innerHTML = "drag the text to design the layout.dont show me this again ";
+    attachCardsDiv.appendChild(PopUpTextForDraggable);
+   
+
+    // <i class="material-icons">close</i>
+
+
+  }
 
 
 	 		
   function readyToDesign(){
   	console.log("ready to design button added")
     designButton.setAttribute("id", "designButtonId")
-    designButton.appendChild(buttonText);//to see front button
-    attachCardsDiv.appendChild(designButton)
+    designSpanButton.setAttribute('class', "designSpanButtonClass")
+    designSpanButton.appendChild(buttonText);
+    designButton.appendChild(designSpanButton);
+    attachCardsDiv.appendChild(designButton);
+
+    var questionTextDiv  = document.createElement("div")
+    questionTextDiv.setAttribute("class", "questionTextClass");//not used
+
+
+
+    if(document.body.contains(squareMainDiv)){
+      questionTextDiv.innerHTML = "Youve picked a square card"
+      attachCardsDiv.appendChild(questionTextDiv);  
+    }
+
+
+
+
+
+
+
+    // designButton.appendChild(buttonText);//to see front button
   }
 
   
@@ -412,12 +594,35 @@ console.log("scripts attached");
 		var roundClick =  document.getElementById("roundMainID");
 
     if(event.target.parentNode.parentNode.parentNode === squareClick){
-    	// console.log(event.target.parentNode.parentNode.parentNode)
 		  console.log("squareMain clicked");
-			roundMainDiv.remove();
-			readyToDesign();
-			getCardsPanel[0].removeEventListener('click', runThis, false)
+      // before removing roundmain grab squaremain and add animation?
+      heartAppearsAnimation();
+
+
+      document.querySelector('.boxShadowClassSquare').classList.remove("boxShadowClassSquare");
+
+
+
+
+      function cardRemoveAnimation(){
+        roundMainDiv.remove();
+        readyToDesign();//ready to design button
+
+        getCardsPanel[0].removeEventListener('click', runThis, false)
+      }
+      setTimeout(cardRemoveAnimation, 1000)
+      //animation related- remove round card after few seconds
+
+
+
+
+      setTimeout(removeDragAndCloseIcon, 5000)
+      //animation related-remove drag icon and remove close buttons
+
 		}
+
+
+
 
 		if(event.target.parentNode.parentNode.parentNode === roundClick){
 			console.log("roundMain clicked");
@@ -435,6 +640,113 @@ console.log("scripts attached");
   }
 
 
+
+
+
+
+  // function smoothMovementForCardsAnimation(){
+  //   console.log("yetruytdysagx mZ xasvcjhgdjqhesb")
+
+  //   // setTimeout(function(){
+  //   //   document.getElementById('roundMainID').style.transition = "0.5s"
+  //   //   document.getElementById('roundMainID').style.width = 0;
+  //   // }, 100);
+
+  //   setTimeout(function(){
+  //     document.getElementById('roundMainID').remove();
+  //    }, 1000);
+
+
+  // }
+
+
+
+  function heartAppearsAnimation(){
+
+      var x=event.clientX-10;
+      var y=event.clientY-10;
+      console.log("Your Mouse Position Is : " + x + " and " + y );
+      squareMainDiv.appendChild(heartBeatFont);
+
+      // ...............................................
+
+      // document.querySelector('.front2').style.background = "#f5f5f5";
+      // document.querySelector('.back2').style.background = "#f5f5f5";
+
+      // document.querySelector('.front2').style.removeProperty('box-shadow');
+
+
+
+
+      // ..............................................
+
+
+
+
+
+      document.getElementById('heartBeatId').style.position = "absolute";
+      document.getElementById('heartBeatId').style.left =  x +'px';
+      document.getElementById('heartBeatId').style.top = y +'px';
+
+      
+
+      // setTimeout(colorChange, 550);
+      setTimeout(function(){
+      document.getElementById('heartBeatId').style.visibility = "hidden";
+      }, 1000);
+
+  }
+    
+
+
+
+  function removeDragAndCloseIcon(){
+    console.log("removeDragAndCloseIcon function")
+    dragArrowElement.style.visibility= "hidden";
+
+    var deleteButtons = document.querySelectorAll('.deleteButton')
+    for (var i = 0; i < deleteButtons.length; i++) {
+      deleteButtons[i].style.visibility= 'hidden'
+    };
+
+  }
+
+
+  
+
+
+  function mouseOverFunction(){
+    console.log("mouse over me");
+    dragArrowElement.style.visibility= "visible";
+    var deleteButtons = document.querySelectorAll('.deleteButton')
+    for (var i = 0; i < deleteButtons.length; i++) {
+      deleteButtons[i].style.visibility= 'visible'
+    };
+  }
+
+
+
+  function mouseOutFunction(){
+    console.log("mouse out")
+    dragArrowElement.style.visibility= "hidden";
+    var deleteButtons = document.querySelectorAll('.deleteButton')
+    for (var i = 0; i < deleteButtons.length; i++) {
+      deleteButtons[i].style.visibility= 'hidden'
+    };
+  }
+
+  function mouseInAndOutOnDragAndCloseIcon(){
+    document.getElementById('fourC').addEventListener("mouseover", mouseOverFunction)
+    document.getElementById('fourC').addEventListener("mouseout", mouseOutFunction)
+  }
+
+
+
+
+
+
+
+
 // **************************dom event handlers******************************
 
 	designButton.addEventListener('click', function(){
@@ -442,9 +754,13 @@ console.log("scripts attached");
     if(document.body.contains(squareMainDiv)){
       console.log("square main div is present");
       console.log("designButton clicked")
+      document.querySelector(".questionTextClass").remove()
       squareCardTools();
       addInputBoxbutton();
       uploadImage();
+      mouseInAndOutOnDragAndCloseIcon();
+
+
       //ready to design button dissapears
     }
 
@@ -455,7 +771,6 @@ console.log("scripts attached");
       roundCardTools();//????????????      
       addInputBoxbutton();
       uploadImage();
-
     }
 
 		
@@ -470,32 +785,94 @@ console.log("scripts attached");
 
 
 
+
+
   InputBoxbutton.addEventListener('click', function(){
 	  console.log("input Box clicked");
 
+
+
+    var li=document.createElement('li');
+    li.setAttribute("class", "liClass");
+    // li.innerHTML="   ";
+
+
+
     var inputTagOne = document.createElement("input");
-	  inputTagOne.setAttribute("type", "text" ,"autofocus");
-	  inputTagOne.setAttribute("value", "your name");
-	  inputTagOne.setAttribute("class", "tagClass")
-    inputTagOne.setAttribute("id", "InputTagId")
+    var liClass = document.querySelectorAll(".liClass");
 
-    console.log("wtf")
+    
+    setTimeout(removeDragAndCloseIcon, 5000)
 
 
-	  var li=document.createElement('li');
-	 	li.setAttribute("class", "liClass");
 
-    li.innerHTML="hello";
-    li.appendChild(inputTagOne)
-    	// document.body.appendChild(ul); //this create elements dynamically
+    if(document.querySelector('li', [0])){
+      console.log("there is a li present")
+
+      for (var i = 0; i < liClass.length; i++) {
+        console.log(liClass[0].children[0].style.fontFamily); 
+        var fontSelected = liClass[0].children[0].style.fontFamily;
+        inputTagOne.setAttribute('style', 'font-family:'+ fontSelected +';')
+      };
+    }
+
+
+    inputTagOne.setAttribute("type", "text" ,"autofocus");
+    inputTagOne.setAttribute("value", "your name");
+    inputTagOne.setAttribute("class", "tagClass");
+    inputTagOne.setAttribute("id", "InputTagId");
+    li.appendChild(inputTagOne);
+
+
+    // draggablePopUp()
+
+
+
+
+
+   // document.body.appendChild(ul); //this create elements dynamically
+  // ........................................................
 
     var removeButton = document.createElement("button");
-    var buttonText3 = document.createTextNode("delete Input Tag");
-	  removeButton.setAttribute("class", "deleteButton");
-	 	removeButton.appendChild(buttonText3);
+    removeButton.setAttribute("type", "submit");
+    removeButton.setAttribute("class", "deleteButton");
 
-	 	li.appendChild(removeButton)
+
+
+    var closeButtonFont = document.createElement('i');
+    closeButtonFont.setAttribute("class", "material-icons");
+    closeButtonFont.innerHTML = "close"
+    closeButtonFont.style.fontSize='15px';
+
+    removeButton.appendChild(closeButtonFont);
+    li.appendChild(removeButton)
     ul.appendChild(li);
+
+  // ..........................................................
+
+
+    dragArrowElement.appendChild(dragFont)
+    ul.insertBefore(dragArrowElement, ul.childNodes[0]);
+
+
+
+     // <<<<<<<<<<<>>>>>>>>>>>      
+    // apply style to all at once if the fontstyle is selected 
+    selectTag.addEventListener("change", function(){
+      console.log("a font is selected from option");
+      console.log(this.value)
+      for (var i = 0; i < liClass.length; i++) {
+        liClass[i].style.fontFamily = this.value;
+      };
+
+      inputTagOne.style.fontFamily = this.value;
+    })
+     // <<<<<<<<<<<>>>>>>>>>>>
+
+
+
+
+
 
     if(document.body.contains(squareMainDiv)){
      (cardFrontDiv).appendChild(ul);
@@ -507,15 +884,16 @@ console.log("scripts attached");
 
     document.querySelectorAll(".deleteButton").forEach(function(btn) {
 	    btn.addEventListener('click', function(e){
-		    e.target.parentNode.remove();
+		    e.target.parentNode.parentNode.remove();
 		  });
     });
+
+
 
     $( document ).ready(function() {
       console.log( "ready!" );
       $('#ulDiv').draggable()
     });
-
   })
 
 
@@ -542,6 +920,7 @@ console.log("scripts attached");
   })
 
 
+  // var fontSelectId= document.getElementById('fontSelectId');
 
 
   goBackButton.addEventListener('click', function(){
@@ -554,7 +933,7 @@ console.log("scripts attached");
   
   layoutPrintButton.addEventListener('click', function(){
     console.log("hello from layout print button")
-              window.print()
+    window.print()
 
   })
  
@@ -571,19 +950,29 @@ console.log("scripts attached");
 		buttonsClass[i].addEventListener('click', function(event){	
 
 
-		  if(event.target ===  pick){
+		  if(event.target === pick){
 		  	console.log("pick button clicked");
 				removePopUpText();
 
 			  attachTwoCardsOnDom();
 				attachEventToCardPanels();
+        setTimeout(function(){
+          document.getElementById('squareMainID').style.animation = 'none';
+          document.getElementById('roundMainID').style.animation = 'none';
+        }, 1000)
+        
+
 
 
         if(document.body.contains(designButton)){
 				  console.log("design button from refresh is removed")
 	        designButton.remove()
-	        buttonText.remove()     
+	        buttonText.remove() 
+          document.getElementById('heartBeatId').style.removeProperty('visibility');//removing visibilty property
+          document.getElementById('heartBeatId').remove();
 				}
+
+
 
         if(document.body.contains(document.getElementById("rotate-to-back-id"))){
           console.log("design button from pick is removed")
@@ -591,8 +980,14 @@ console.log("scripts attached");
           document.getElementById("rotate-to-front-id").remove();
           document.getElementById("filetag").remove();
           document.getElementById("createInputText").remove();
-          document.getElementById("refreshButtonId").remove()
+          document.getElementById("refreshButtonId").remove();
+          document.getElementById("fontSelectId").remove();
 
+          if(document.body.contains(document.getElementById('draggArrowId'))){
+            document.getElementById('draggArrowId').remove();
+            document.getElementById('fourC').removeEventListener("mouseover", mouseOverFunction)
+            document.getElementById('fourC').removeEventListener("mouseout", mouseOutFunction)
+          }
           buttonText2.remove() 
         }
 
@@ -606,6 +1001,16 @@ console.log("scripts attached");
         	document.getElementById("ulDiv").remove();   
         }
 
+        //if when pick button is pressed, backside of the square card shows, then replace it with the front side. if the class sun is present then remove sun
+
+        if(document.body.contains(document.querySelector(".sun"))){
+          console.log("sun is presnt");
+
+          document.getElementById('fourB').classList.remove("sun");//;
+          console.log("sun class is removed")
+          document.getElementById('fourD').classList.remove("moon");//;
+          document.getElementById('fourB2').classList.remove("sun");//;
+        }
 			}	
 
 
@@ -634,7 +1039,6 @@ console.log("scripts attached");
             console.log("set time out clicked")
           }
 
-          setTimeout(removepopup, 2000)
         }
 
 
@@ -645,8 +1049,15 @@ console.log("scripts attached");
               document.getElementById("rotate-to-back-id").remove();
               document.getElementById("rotate-to-front-id").remove();
               document.getElementById("createInputText").remove();
-              document.getElementById("refreshButtonId").remove()
-              buttonText2.remove()
+              document.getElementById("refreshButtonId").remove();
+              document.getElementById("fontSelectId").remove();
+              document.getElementById('draggArrowId').remove();
+
+
+
+
+              buttonText2.remove();
+
 
 
               var removeButtonFromPrint = document.querySelectorAll(".deleteButton");
@@ -668,8 +1079,8 @@ console.log("scripts attached");
                 roundMainDiv.appendChild(cardFrontDiv2)
                 roundMainDiv.appendChild(cardBackDiv2)
                 attachCardsDiv.appendChild(roundMainDiv);
-                classBDiv2.remove()
-                classADiv2.remove()
+                classBDiv2.remove();
+                classADiv2.remove();
                 cardFrontDiv2.style.cursor = 'none';//cursor doesnt move
                 cardBackDiv2.style.cursor = 'none';//cusrsor doesnt move
               }
