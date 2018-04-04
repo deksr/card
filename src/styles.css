@@ -53,8 +53,8 @@ body {
 
 
 	button{
-		margin: 40px;
-	}
+/*		margin: 40px;
+*/	}
 
 
 
@@ -75,7 +75,6 @@ body {
     background-color: #ffdb4d;
   	transition: 0.3s;
 		opacity: 10;
-		font-size: 100%;
     cursor: pointer;
     border-radius: 10px;
     margin: 5px;
@@ -97,88 +96,48 @@ body {
   #designButtonId {
     border-style: none;
     font-size: 16px;
-    color:white;
-    background-color: white;
-    opacity: 10;
-    font-size: 100%;
     cursor: pointer;
     border-radius: 1px;
-    color: grey;
     padding: 10px;
     position: absolute;
-    top: 37%;
-    left: 47%;
+    top: 48.5%;
+    left: 50%;
     transform: translate(-50%, -50% );
   }
 
 
 
 
-  #designButtonId:hover {
-    transition: .50s;
+  
+  .designSpanButtonClass{
+    font-size: 17px;
+    color: #A8A8A8;
+    text-stroke: 1px black;
+  }
+
+  .designSpanButtonClass:hover{
     color: white;
-    opacity:0.75;
-    background-color: grey;
+    color: #696969
   }
 
 
-/*  all buttons*/
+  .questionTextClass{
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    color: #83d0c9;
+    transform: translate(-50%, -50% );
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
 
-  #wrapperForallButtonsDivWrapper{
-/*    background-color: yellow;
-*/    width: 100%;
-    height: 100px;
-    text-align: center;
-
-
-  }
-
-
-
-  #allButtonsDivWrapperId {
-/*    background-color: green; 
-*/    height: 70px;
-    width: 81%;
-    text-align: left;
-    position: relative;
-    left: 19%;
-    padding-top: 26px;
   }
 
 
 
 
-
-  .buttonBlockStyle {
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-left: 30px;
-    margin-right: 40px;
-    border: none;
-
-
-
-
-/*    position: static;
-*/
-  }
-
-
-/*  .buttonBlockStyle:hover {
-    background-color: pink;  
-  }*/
-
-
-
-
-
- 
 
 
   .deleteButton{
-    font-size: 5px;
     color: grey;
     border: none;
     padding: 0;
@@ -186,15 +145,45 @@ body {
     cursor: pointer;
   }
 
+  /*  all buttons*/
 
-
-  .questionTextClass{
-    position: absolute;
-    top: 37%;
-    left: 50%;
-    color: #83d0c9;
-    transform: translate(-50%, -50% );
+  /*#wrapperForallButtonsDivWrapper{
+    background-color: pink;
+    width: 100%;
+    height: 100px;
+    text-align: center;
   }
+
+
+
+  #allButtonsDivWrapperId {
+    background-color: green;
+   height: 70px;
+    width: 81%;
+    text-align: left;
+    position: relative;
+    left: 15%;
+    padding-top: 35px;
+  }
+
+
+
+
+
+  .buttonBlockStyle {
+   padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: none;
+  }*/
+
+
+
+ 
+
 
 
 /****** animations *******/
@@ -217,15 +206,16 @@ body {
 
   #roundMainID{
     display: inline-block;
-    animation: fadein .50s;
-    /* this appears at the begining. but should not inherit */
+
   }
 
-/*  #roundMainID:hover {
-   background-color: pink;
-  }*/
 
-  @keyframes fadein {
+
+
+/*   animation: fadein .50s;
+*/
+
+  /*@keyframes fadein {
     from {
       opacity:0;
     }
@@ -233,7 +223,7 @@ body {
       opacity:1;
     }
   }
-
+*/
 
   .heartBeat{
     animation: pulsate 2s ease-out;
@@ -252,6 +242,11 @@ body {
   }
 
 
+
+
+
+
+
   /********styles related squarecard and round cards********/	
 
 
@@ -262,8 +257,13 @@ body {
     padding: 10px;
     left: 300px;
     text-align: center;
+   /* font-size: 35px;*/ /* effects on heart shape, lets design, title: youve picked a square card; 
+
 /*    background-color: pink;
 */	}
+
+
+
 
 
 
@@ -283,6 +283,7 @@ body {
     box-shadow: 5px 10px 10px #A9A9A9;
 
   }
+
 
   .boxShadowClassRound:hover {
     transition: 0.5s;
@@ -447,20 +448,35 @@ body {
 
 
   li{
-    display: list-item;
-    list-style-type: none;
+/*    display: list-item;
+*/    list-style-type: none;
+  }
+
+  .liClass{
+
+
+
   }
 
 
 
 
-
-  input {
+    input {
     border: 0;
     outline: 0;
     background: transparent;
     border-bottom: none;
+    color: grey;
+
+
   }
+
+
+
+
+
+
+
 
 
 

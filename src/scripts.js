@@ -69,11 +69,12 @@ console.log("scripts attached");
 
   var selectTag = document.createElement("select");
   selectTag.setAttribute("id", "fontSelectId");
-  selectTag.setAttribute("class", "buttonBlockStyle");
+  selectTag.setAttribute("class", "buttonBlockStyle selectTagStyle");
 
 
 
   var optionTagOne = document.createElement("option");
+  optionTagOne.setAttribute("class", "optionStyle");
   optionTagOne.setAttribute("value", "Jaldi");
   optionTagOne.textContent = "Jaldi";
  
@@ -264,16 +265,16 @@ console.log("scripts attached");
 
 
 
-    seeBackButton.setAttribute("class", "buttonBlockStyle")
+    seeBackButton.setAttribute("class", "buttonBlockStyle backButtonStyle")
     seeBackButton.appendChild(buttonText5);
     seeBackButton.style.display = ""//original-code: we are displaying back button on the front.
 
 
     seeFrontButton.setAttribute("id", "rotate-to-front-id")
     console.log("I'm front being called")
-    seeFrontButton.setAttribute("class", "buttonBlockStyle")
+    seeFrontButton.setAttribute("class", "buttonBlockStyle frontButtonStyle")
     seeFrontButton.appendChild(buttonText7);
-    seeFrontButton.style.display = "none" //original-code: dont diaply see front button yet
+    seeFrontButton.style.display = "none"; //original-code: dont diaply see front button yet
 
 
 
@@ -282,13 +283,13 @@ console.log("scripts attached");
 
 
   
-    designRefreshButton.setAttribute("id", "refreshButtonId")
+    designRefreshButton.setAttribute("id", "refreshButtonId");
     designRefreshButton.appendChild(buttonText4);
-    designRefreshButton.setAttribute("class", "buttonBlockStyle");
+    designRefreshButton.setAttribute("class", "buttonBlockStyle designRefreshStyle");
 
 
     InputBoxbutton.setAttribute("id", "createInputText")
-    InputBoxbutton.setAttribute("class", "buttonBlockStyle");
+    InputBoxbutton.setAttribute("class", "buttonBlockStyle InputBoxStyle");
     InputBoxbutton.appendChild(buttonText2);
 
 
@@ -296,7 +297,7 @@ console.log("scripts attached");
 
     uploadButton.setAttribute("type", "file");
     uploadButton.setAttribute("id", "filetag");
-    uploadButton.setAttribute("class", "buttonBlockStyle");
+    uploadButton.setAttribute("class", "buttonBlockStyle UploadStyle");
     uploadButton.style.display='none'//original-code: upload is not displayed on dom still
 
 
@@ -749,6 +750,7 @@ console.log("scripts attached");
 
 	designButton.addEventListener('click', function(){
 
+
     if(document.body.contains(squareMainDiv)){
       console.log("square main div is present");
       console.log("designButton clicked")
@@ -777,6 +779,7 @@ console.log("scripts attached");
 	    designButton.remove()
 	    buttonText.remove()
 		}
+
 	})
 
 
@@ -816,7 +819,7 @@ console.log("scripts attached");
 
 
     inputTagOne.setAttribute("type", "text" ,"autofocus");
-    inputTagOne.setAttribute("value", "your name");
+    inputTagOne.setAttribute("value", "Enter Text");
     inputTagOne.setAttribute("class", "tagClass");
     inputTagOne.setAttribute("id", "InputTagId");
     li.appendChild(inputTagOne);
