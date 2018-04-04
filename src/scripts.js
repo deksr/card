@@ -11,6 +11,12 @@ console.log("scripts attached");
 	var popUpText = document.createElement("div");
 
 
+  var wrapperForallButtonsDivWrapper = document.createElement("div");
+  wrapperForallButtonsDivWrapper.setAttribute("id", "wrapperForallButtonsDivWrapper");//not used
+
+
+
+
   var allButtonsDivWrapper = document.createElement("div");
   allButtonsDivWrapper.setAttribute("id", "allButtonsDivWrapperId");//not used
   allButtonsDivWrapper.setAttribute("class", "placeSideBySide"); 
@@ -18,9 +24,8 @@ console.log("scripts attached");
 
 
   var designButton = document.createElement("button");
-  var buttonText = document.createTextNode("Design");
+  var buttonText = document.createTextNode("Let's Design");
   var designSpanButton = document.createElement("span");
-
 
 
   var seeBackButton = document.createElement("button");
@@ -60,11 +65,7 @@ console.log("scripts attached");
 
 
 
-
-
-
-
-
+  // select tag related
 
   var selectTag = document.createElement("select");
   selectTag.setAttribute("id", "fontSelectId");
@@ -100,19 +101,10 @@ console.log("scripts attached");
 
 
 
-
-
-
-
-
-
-
  
 
   var ul=document.createElement('ul');
   ul.setAttribute("id", "ulDiv");
-
-
 
   var getCardsPanel = document.getElementsByClassName("cardsPanel");
   
@@ -174,6 +166,8 @@ console.log("scripts attached");
 
 	var tinyDivBack = document.createElement("div");
 	tinyDivBack.setAttribute("class", "tiny-div-back");
+
+
 
 
 
@@ -246,15 +240,12 @@ console.log("scripts attached");
 
 
 
-  function addInputBoxbutton(e){
-  	console.log("input box function called")
- 		InputBoxbutton.setAttribute("id", "createInputText")
-    InputBoxbutton.setAttribute("class", "buttonBlockStyle");
- 		InputBoxbutton.appendChild(buttonText2);
-    console.log("Input box button is created")
+  // function addInputBoxbutton(e){
+  // 	console.log("input box function called")
  		
- 		// document.body.appendChild(attachCardsDiv);
-  }
+ 		
+ 	// 	// document.body.appendChild(attachCardsDiv);
+  // }
 
 
 
@@ -286,7 +277,7 @@ console.log("scripts attached");
 
 
 
-    InputBoxbutton.style.display='' //original-code: display input box button on dom
+    // InputBoxbutton.style.display='' //original-code: display input box button on dom
 
 
 
@@ -294,6 +285,11 @@ console.log("scripts attached");
     designRefreshButton.setAttribute("id", "refreshButtonId")
     designRefreshButton.appendChild(buttonText4);
     designRefreshButton.setAttribute("class", "buttonBlockStyle");
+
+
+    InputBoxbutton.setAttribute("id", "createInputText")
+    InputBoxbutton.setAttribute("class", "buttonBlockStyle");
+    InputBoxbutton.appendChild(buttonText2);
 
 
 
@@ -414,7 +410,7 @@ console.log("scripts attached");
 
     cardBackDiv.appendChild(imageWrapperDiv);
     
-
+    
     allButtonsDivWrapper.appendChild(seeBackButton);//button 
     allButtonsDivWrapper.appendChild(seeFrontButton);//button //original -code:
 
@@ -434,8 +430,10 @@ console.log("scripts attached");
     squareMainDiv.appendChild(classADiv);
     attachCardsDiv.appendChild(squareMainDiv)
     document.body.appendChild(attachCardsDiv);
+    wrapperForallButtonsDivWrapper.appendChild(allButtonsDivWrapper);
 
-    attachCardsDiv.appendChild(allButtonsDivWrapper);
+
+    attachCardsDiv.appendChild(wrapperForallButtonsDivWrapper);
 
 
 
@@ -756,9 +754,9 @@ console.log("scripts attached");
       console.log("designButton clicked")
       document.querySelector(".questionTextClass").remove()
       squareCardTools();
-      addInputBoxbutton();
-      uploadImage();
+      // addInputBoxbutton();
       mouseInAndOutOnDragAndCloseIcon();
+      uploadImage();
 
 
       //ready to design button dissapears
