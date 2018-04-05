@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #FB393C; /* Blue  */
+  background-color: #FB393C; /* Blue #83d0c9 */
 }
 
 
@@ -90,7 +90,7 @@ body {
 		border-style: none;
 		padding: 20px 48px;
 		font-size: 16px;
-		color:white;
+		color:#484848;
     background-color: #ffdb4d;
   	transition: 0.3s;
 		opacity: 10;
@@ -107,7 +107,7 @@ font-family: 'Arimo', sans-serif;
 
 	.button-style:hover {
 	  background-color:#cca300;
-	  color: white;
+	  color: black;
 	  opacity:0.75;
 	}
 
@@ -148,7 +148,7 @@ font-family: 'Arimo', sans-serif;
     position: absolute;
     top: 43%;
     left: 50%;
-    color: #83d0c9;
+    color: #606060;
     transform: translate(-50%, -50% );
 /*    font-family: 'Playfair Display', serif;
 */

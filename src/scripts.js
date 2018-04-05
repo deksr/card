@@ -8,7 +8,8 @@ console.log("scripts attached");
 
 
   var mainWbpageDivId = document.getElementById('mainWbpageDivId')
-	var popUpText = document.createElement("div");
+	var popUpText = document.createElement("div");//popup for pick a card first
+  popUpText.setAttribute("class", "PickCardFirstPopUp"); 
 
 
   var wrapperForallButtonsDivWrapper = document.createElement("div");
@@ -220,12 +221,16 @@ console.log("scripts attached");
   function attachTwoCardsOnDom(){
   	console.log("hi from attachTwoCardsOnDom() function")
 
+
     classBDiv.appendChild(cardFrontDiv);
 		classBDiv.appendChild(cardBackDiv);
 		classADiv.appendChild(classBDiv)
 		squareMainDiv.appendChild(classADiv)
 		attachCardsDiv.appendChild(squareMainDiv);
 		document.body.appendChild(attachCardsDiv);
+    // document.querySelector('.boxShadowClassSquare').classList.add("boxShadowClassSquare");
+
+
 
     // ***************************
 
@@ -237,6 +242,15 @@ console.log("scripts attached");
 		document.body.appendChild(attachCardsDiv);
 
 	}
+
+  function shadowStleCheck(){
+    if(document.body.contains(document.querySelector('.front') && document.querySelector('.boxShadowClassSquare'))){
+      console.log("contains front and boxShadowClassSquare class")
+    }
+    else{
+      document.querySelector('.front').classList.add("boxShadowClassSquare");
+    }
+  }
 
 
 
@@ -529,7 +543,7 @@ console.log("scripts attached");
 
 
   function popuUpText1(){
-		popUpText.innerHTML = "please pick a div";
+		popUpText.innerHTML = "Pick a card first";
 	  mainWbpageDivId.appendChild(popUpText);
 	}
 
@@ -596,8 +610,6 @@ console.log("scripts attached");
 		  console.log("squareMain clicked");
       // before removing roundmain grab squaremain and add animation?
       heartAppearsAnimation();
-
-
       document.querySelector('.boxShadowClassSquare').classList.remove("boxShadowClassSquare");
 
 
@@ -643,54 +655,22 @@ console.log("scripts attached");
 
 
 
-  // function smoothMovementForCardsAnimation(){
-  //   console.log("yetruytdysagx mZ xasvcjhgdjqhesb")
-
-  //   // setTimeout(function(){
-  //   //   document.getElementById('roundMainID').style.transition = "0.5s"
-  //   //   document.getElementById('roundMainID').style.width = 0;
-  //   // }, 100);
-
-  //   setTimeout(function(){
-  //     document.getElementById('roundMainID').remove();
-  //    }, 1000);
-
-
-  // }
-
 
 
   function heartAppearsAnimation(){
-      var a=event.clientX-10;
-      var b=event.clientY-207;
-      console.log("original mouse position:" + a + "and" + b);
 
 
 
       var x=event.clientX-10;
-      var y=event.clientY-10;
+      var y=event.clientY-207;
       console.log("Your Mouse Position Is :" + x + " and " + y );
       squareMainDiv.appendChild(heartBeatFont);
 
-      // ...............................................
-
-      // document.querySelector('.front2').style.background = "#f5f5f5";
-      // document.querySelector('.back2').style.background = "#f5f5f5";
-
-      // document.querySelector('.front2').style.removeProperty('box-shadow');
-
-
-
-
-      // ..............................................
-
-
-
-
+ 
 
       document.getElementById('heartBeatId').style.position = "absolute";
-      document.getElementById('heartBeatId').style.left =  a +'px';
-      document.getElementById('heartBeatId').style.top = b +'px';
+      document.getElementById('heartBeatId').style.left =  x +'px';
+      document.getElementById('heartBeatId').style.top = y +'px';
 
       
 
@@ -959,9 +939,10 @@ console.log("scripts attached");
 		  if(event.target === pick){
 		  	console.log("pick button clicked");
 				removePopUpText();
-
 			  attachTwoCardsOnDom();
 				attachEventToCardPanels();
+        shadowStleCheck();
+
         setTimeout(function(){
           document.getElementById('squareMainID').style.animation = 'none';
           document.getElementById('roundMainID').style.animation = 'none';
