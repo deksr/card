@@ -434,7 +434,7 @@ console.log("scripts attached");
     wrapperForallButtonsDivWrapper.appendChild(allButtonsDivWrapper);
 
 
-    attachCardsDiv.appendChild(wrapperForallButtonsDivWrapper);
+    document.body.appendChild(wrapperForallButtonsDivWrapper);
 
 
 
@@ -661,10 +661,15 @@ console.log("scripts attached");
 
 
   function heartAppearsAnimation(){
+      var a=event.clientX-10;
+      var b=event.clientY-207;
+      console.log("original mouse position:" + a + "and" + b);
+
+
 
       var x=event.clientX-10;
       var y=event.clientY-10;
-      console.log("Your Mouse Position Is : " + x + " and " + y );
+      console.log("Your Mouse Position Is :" + x + " and " + y );
       squareMainDiv.appendChild(heartBeatFont);
 
       // ...............................................
@@ -684,8 +689,8 @@ console.log("scripts attached");
 
 
       document.getElementById('heartBeatId').style.position = "absolute";
-      document.getElementById('heartBeatId').style.left =  x +'px';
-      document.getElementById('heartBeatId').style.top = y +'px';
+      document.getElementById('heartBeatId').style.left =  a +'px';
+      document.getElementById('heartBeatId').style.top = b +'px';
 
       
 

@@ -21,23 +21,30 @@
 	}
 
 
+
+
  #wrapperForallButtonsDivWrapper{
-/*    background-color: red;
-*/
-text-align: center;
-margin-top: 12px;
+  /*background*/-color: red;
+	margin: auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    top: 50%;
   }
 
 
 
   #allButtonsDivWrapperId {
-/*    background-color: yellow;
-*/    text-align: left;
-    width: 54%;
-    position: relative;
-    left: 30%;
-    text-align: left;
+    background-color: yellow;
+    width: 290px;
+   /* position: absolute;
+    position: 40%;
+    left: 30%;*/
+    text-align: center;
     background-color: #f5f5f5;
+
+    margin: auto;
 
   }
 
