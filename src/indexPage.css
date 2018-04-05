@@ -13,69 +13,53 @@
 	body {
 	  height: 100%;
 	  margin: 0;
-	  background: linear-gradient(#FFFFCC, #CCFFFF);
-	  background-repeat: no-repeat;
-	  background-attachment: fixed;
+	  background-color:  #83d0c9;  
 	}
 
 
 
 	.logo{
-	  font-family: 'Dynalight', cursive;
-	  color:white;
+    font-family: 'Archivo Black', sans-serif;
+    color:white;
 	  font-size: 100px;
 	  position: absolute;
 	  top: 21.5%;
-	  left: 35%;
-	  text-shadow: 2px 2px #83d0c9;
-	  z-index: 30;
+	  left: 35.5%;
+    z-index: 30;
+        height: auto;
+
 	}
 
 	.home-page-link{
 	  text-decoration:none;
 	  position: absolute;
-	  top: 45%;
-	  left: 43%;
-	  font-family: 'Dancing Script', cursive;
-	  color:#83d0c9;
+	  top: 40%;
+	  left: 47%; 
+    font-family: 'Archivo Black', sans-serif;
+    color:#ffdb4d;
 	  font-size: 30px;
+	  height: auto;
+
 	}
 
-	/*.square1 {
-  height: 550px;
-  width: 550px;
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  border-color: #83d0c9;
-  border-style: solid;
-  border-width: 10px;
-  opacity: 0.5;
-  transform: rotate(75deg);
-  transition: transform 0.8s;
-}*/
+	.cardIllustration{
+		width: 50%;
+    height: auto;
 
-/*.square2 {
-  height: 150px;
-  width: 150px;
-  position: absolute;
-  top: 10%;
-  left: 25%;
-  background-color: #FFCCCC;
-  border-color: white;
-  border-style: solid;
-  border-width: 30px;
-  opacity: 0.5;
-  transform: rotate(75deg);
-  transition: transform 0.8s;
-}*/
+	}
+
+	.clickStyle{
+		color: #ffdb4d;
+		text-decoration: none;
+
+	}
+
+	.clickStyle:hover{
+		background-color:#ffdb4d ;
+		color: white;
+		text-decoration: none;
 
 
-
-
-	.square1:hover {
-	  transform: translate(20px, 20px);
-	  transform: scale(1.1);
 	}
 
 }

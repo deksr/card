@@ -40,7 +40,7 @@ console.log("scripts attached");
 
 
   var InputBoxbutton = document.createElement("button");
-	var buttonText2 = document.createTextNode("create Input text");
+	var buttonText2 = document.createTextNode("Type your address");
 
 
 
@@ -572,7 +572,7 @@ console.log("scripts attached");
 
 
     if(document.body.contains(squareMainDiv)){
-      questionTextDiv.innerHTML = "Youve picked a square card"
+      questionTextDiv.innerHTML = "Youve picked <br> a square card"
       attachCardsDiv.appendChild(questionTextDiv);  
     }
 
