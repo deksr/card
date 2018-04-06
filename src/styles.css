@@ -16,8 +16,8 @@ body {
 
 
 /* Desktop Styles */
-@media only screen and (min-width: 961px) {
-
+/*@media only screen and (min-width: 961px) {
+*/
 
 
   html {
@@ -542,4 +542,5 @@ body {
     width: 270px;
   }
 
-}
+/*}
+*/
