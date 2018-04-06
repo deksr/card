@@ -147,30 +147,32 @@ button:focus {
 
 /**********popups********/
 
-.PickCardFirstPopUp{
-	color: white;
+.pickCardFirstPopUp{
 	font-family: 'Rajdhani';
 	text-align: center;
 	vertical-align: middle;
-	  line-height: 30px;
-
-/*	background-color: #fd5849;
-*/
-
-/*	border: 5px solid #83d0c9;
-*/
+	line-height: 30px;
   color: #484848;
   font-size: 20px;
-
 	height:100px;
   width: 100px;
   position: absolute;
   left: 70%;
   top: 350px;
+}
 
-/*  border-radius: 50px 50px 50px 50px;
-*/  
-
+.designAndPrintPopUp{
+	font-family: 'Rajdhani';
+	text-align: center;
+	vertical-align: middle;
+	line-height: 30px;
+  color: #484848;
+  font-size: 20px;
+	height:100px;
+  width: 100px;
+  position: absolute;
+  left: 70%;
+  top: 100px;
 
 }
 
