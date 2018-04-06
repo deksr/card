@@ -119,6 +119,10 @@ console.log("scripts attached");
 
   var imageAttach = document.createElement("img");
 
+  var printButtonAndGoBackWrapper = document.createElement("div");
+  printButtonAndGoBackWrapper.setAttribute("class", "printButtonAndGoBackWrapperClass");
+
+
   var layoutPrintButton = document.createElement("button");
 
   var goBackButton = document.createElement("button");
@@ -1104,10 +1108,18 @@ console.log("scripts attached");
 
 
             if(document.body.contains( document.getElementById('draggArrowId') && document.querySelectorAll('.liClass')[0]) ) {
-              printCriteria()
+              document.body.style.backgroundImage = "none";
+
+              document.getElementById('ulDiv').style.position = "relative"
+              document.getElementById('ulDiv').style.top = 30 +'px';
+              // document.getElementById('ulDiv').style.left = 30%
+
+              document.querySelector('.attach-cards-div').style.position = "absolute"
+              document.querySelector('.attach-cards-div').style.top = 120 +'px';
+
+              printCriteria();
 
             }
-
 
           }
         }
@@ -1168,7 +1180,12 @@ console.log("scripts attached");
             var buttonText8 = document.createTextNode("print back and front");
             layoutPrintButton.setAttribute("id", "layoutPrintButtonId");
             layoutPrintButton.appendChild(buttonText8);//to see front button
-            document.body.appendChild(layoutPrintButton);
+            // document.body.appendChild(layoutPrintButton);
+
+            printButtonAndGoBackWrapper.appendChild(layoutPrintButton);
+            document.body.appendChild(printButtonAndGoBackWrapper)
+
+
 
 
 
@@ -1177,7 +1194,11 @@ console.log("scripts attached");
             var buttonText9 = document.createTextNode("go back to main page");
             goBackButton.setAttribute("id", "goBackButtonId");
             goBackButton.appendChild(buttonText9);//to see front button
-            document.body.appendChild(goBackButton);
+            // document.body.appendChild(goBackButton);
+
+
+            printButtonAndGoBackWrapper.appendChild(goBackButton);
+            document.body.appendChild(printButtonAndGoBackWrapper)
 
 
             var allInputTagforPrint = document.querySelectorAll(".tagClass");

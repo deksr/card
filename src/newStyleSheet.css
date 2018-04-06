@@ -24,8 +24,8 @@
 
 
  #wrapperForallButtonsDivWrapper{
-  /*background*/-color: red;
-	margin: auto;
+/*  background-color: red;
+*/	margin: auto;
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -174,6 +174,55 @@ button:focus {
   left: 70%;
   top: 100px;
 
+}
+
+
+
+.printButtonAndGoBackWrapperClass{
+	margin: auto;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+
+
+}
+
+
+
+
+#layoutPrintButtonId{
+  border: 1px solid;
+	border-style: none;
+	padding: 20px 48px;
+	font-size: 16px;
+	color:#484848;
+  background-color: #ffdb4d;
+  transition: 0.3s;
+	opacity: 10;
+  cursor: pointer;
+  margin: 5px;
+  font-family: 'Arimo', sans-serif;
+  box-shadow: 0 0 0.7px #ffdb4d;
+  display: inline-block;
+}
+
+
+
+#goBackButtonId{
+	border: 1px solid;
+	border-style: none;
+	padding: 20px 48px;
+	font-size: 16px;
+	color:#484848;
+  background-color: #ffdb4d;
+  transition: 0.3s;
+	opacity: 10;
+  cursor: pointer;
+  margin: 5px;
+  font-family: 'Arimo', sans-serif;
+  box-shadow: 0 0 0.7px #ffdb4d;
+  display: inline-block;
 }
 
 
