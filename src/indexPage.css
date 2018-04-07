@@ -4,11 +4,12 @@
 }
 
 
-@media only screen and (min-width: 961px) {
 
 	html {
     height: 100%;
   }
+
+
 
 	body {
 	  height: 100%;
@@ -26,40 +27,43 @@
 	  top: 21.5%;
 	  left: 35.5%;
     z-index: 30;
-        height: auto;
-
+    height: auto;
 	}
+
+
 
 	.home-page-link{
 	  text-decoration:none;
 	  position: absolute;
-	  top: 40%;
-	  left: 47%; 
+	  top: 43%;
+	  left: 37%; 
     font-family: 'Archivo Black', sans-serif;
     color:#ffdb4d;
-	  font-size: 30px;
+	  font-size: 20px;
 	  height: auto;
-
 	}
+
+
 
 	.cardIllustration{
-		width: 50%;
+		width: 30%;
     height: auto;
-
 	}
+
+
 
 	.clickStyle{
 		color: #ffdb4d;
 		text-decoration: none;
-
 	}
+
+
 
 	.clickStyle:hover{
 		background-color:#ffdb4d ;
 		color: white;
 		text-decoration: none;
-
-
 	}
 
-}
+
+
