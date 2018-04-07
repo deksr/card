@@ -3,29 +3,19 @@
 	}
 
 
-/*	.tagClass{
-		font-size: 10px;
-
-	}
-*/
-/*	#InputTagId{
-
-	}*/
 
 	input{
    height: 20px;
    font-size:17px;
    width: 200px;
    color: 	#909090;
-
 	}
 
 
 
 
  #wrapperForallButtonsDivWrapper{
-/*  background-color: red;
-*/	margin: auto;
+  	margin: auto;
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -38,12 +28,8 @@
   #allButtonsDivWrapperId {
     background-color: yellow;
     width: 290px;
-   /* position: absolute;
-    position: 40%;
-    left: 30%;*/
     text-align: center;
     background-color: #f5f5f5;
-
     margin: auto;
 
   }
@@ -61,15 +47,15 @@
   }
 
 .selectTagStyle {
-		padding: 10px;
-		height: 36px;
-		width: 70px;
-		font-size: 13px;
-		border: none;
-		color: 		#909090;
-		background-color: white;
-		-webkit-appearance: none;
-    -webkit-border-radius: 0px;
+	padding: 10px;
+	height: 36px;
+	width: 70px;
+	font-size: 13px;
+	border: none;
+	color: #909090;
+	background-color: white;
+	-webkit-appearance: none;
+  -webkit-border-radius: 0px;
 }
 
 
@@ -78,71 +64,56 @@
 .backButtonStyle {
 	padding: 10px;
 	font-size: 13px;
-		border: none;
-		color: 		#909090;
-		padding-right: 20px;
-		padding-left: 20px;
+	border: none;
+	color: #909090;
+	padding-right: 20px;
+	padding-left: 20px;
 
 }
 
 .frontButtonStyle {
 	padding: 10px;
 	font-size: 13px;
-		border: none;
-		color: 	#909090;
-		padding-right: 20px;
-		padding-left: 20px;
+	border: none;
+	color: 	#909090;
+	padding-right: 20px;
+	padding-left: 20px;
 
 }
 
 .designRefreshStyle {
-		padding: 10px;
+	padding: 10px;
 	font-size: 13px;
-		border: none;
-		color: 	#909090;
+	border: none;
+	color: 	#909090;
 
 
 } 
 
 .InputBoxStyle {
-		padding: 10px;
+	padding: 10px;
 	font-size: 13px;
-		border: none;
-		color: 	#909090;
-/*		padding-right: 40px;
-		padding-left: 40px;*/
-
-
-
+	border: none;
+	color: 	#909090;
 }
 
 .UploadStyle{
 	padding: 10px;
 	font-size: 13px;
-		border: none;
-		color: 	#909090;
-		height: 36px;
-		background: white;
-		width: 90px; 
-
-
-
+	border: none;
+	color: 	#909090;
+	height: 36px;
+	background: white;
+	width: 90px; 
 }
 
-/*::-webkit-file-upload-button{
-	background: white;
-  color: #909090;
-  border: none;
-  font-size: 15px;
-  width: 70px; 
-}*/
 
 
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 /**********popups********/
@@ -161,6 +132,8 @@ button:focus {
   top: 350px;
 }
 
+
+
 .designAndPrintPopUp{
 	font-family: 'Rajdhani';
 	text-align: center;
@@ -173,7 +146,6 @@ button:focus {
   position: absolute;
   left: 70%;
   top: 100px;
-
 }
 
 
@@ -184,8 +156,6 @@ button:focus {
   padding: 10px;
   text-align: center;
   position: relative;
-
-
 }
 
 

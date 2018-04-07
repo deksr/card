@@ -39,7 +39,10 @@ console.log("scripts attached");
   var buttonText7 = document.createTextNode("Rotate to see Front");
 
   var uploadButton = document.createElement("input");
-  var imageWrapperDiv = document.createElement("div");
+
+  var imageWrapperDiv = document.createElement("div");//for square card
+  var imageWrapperDiv2 = document.createElement("div");//for round card
+
 
 
 
@@ -311,10 +314,7 @@ console.log("scripts attached");
     seeFrontButton.style.display = "none"; //original-code: dont diaply see front button yet
 
 
-
     // InputBoxbutton.style.display='' //original-code: display input box button on dom
-
-
 
   
     designRefreshButton.setAttribute("id", "refreshButtonId");
@@ -328,7 +328,6 @@ console.log("scripts attached");
 
 
 
-
     uploadButton.setAttribute("type", "file");
     uploadButton.setAttribute("id", "filetag");
     uploadButton.setAttribute("class", "buttonBlockStyle UploadStyle");
@@ -336,16 +335,26 @@ console.log("scripts attached");
 
 
 
+    if(document.body.contains(squareMainDiv)){
+      imageWrapperDiv.setAttribute("id", "imageWrapperForSquare");
+      cardBackDiv.appendChild(imageWrapperDiv);// this is for square card
+      imageAttach.setAttribute("src", "");
+      imageAttach.setAttribute("id", "preview");
+      imageAttach.setAttribute("class", "buttonBlockStyle");
+      imageWrapperDiv.appendChild(imageAttach);
+    }
 
-    imageWrapperDiv.setAttribute("id", "imageWrapper");
-    cardBackDiv.appendChild(imageWrapperDiv);
 
+    if(document.body.contains(roundMainDiv)){
+      imageWrapperDiv2.setAttribute("id", "imageWrapperForRound");
+      cardBackDiv.appendChild(imageWrapperDiv2);// this is for square card
+      imageAttach.setAttribute("src", "");
+      imageAttach.setAttribute("id", "preview");
+      imageAttach.setAttribute("class", "buttonBlockStyle ImageforRoundStyle");
+      imageWrapperDiv2.appendChild(imageAttach);
 
+    }
 
-    imageAttach.setAttribute("src", "");
-    imageAttach.setAttribute("id", "preview");
-    imageAttach.setAttribute("class", "buttonBlockStyle");
-    imageWrapperDiv.appendChild(imageAttach);
   }
 
 
@@ -380,7 +389,7 @@ console.log("scripts attached");
       seeBackButton.style.display = "none"// original -code: none means css style is taken out on the otehr side and the back button is not displayed
 
       uploadButton.style.display = ''// original -code:shows button on the other side on click
-      InputBoxbutton.style.display='none' //original -code:
+      InputBoxbutton.style.display='' //original -code:
 
       //create input text dissapears 
     })
@@ -408,6 +417,8 @@ console.log("scripts attached");
 
       uploadButton.style.display='none'//original -code:
       InputBoxbutton.style.display=''//original -code:
+
+        ///write another functionality here
     })
   }
 
@@ -457,7 +468,7 @@ console.log("scripts attached");
     cardTools()
 
     allButtonsDivWrapper.appendChild(selectTag)//all fonts
-    cardBackDiv2.appendChild(imageWrapperDiv);
+    cardBackDiv2.appendChild(imageWrapperDiv2);
 
     allButtonsDivWrapper.appendChild(seeBackButton);//back button
     allButtonsDivWrapper.appendChild(seeFrontButton);//front button
@@ -506,7 +517,7 @@ console.log("scripts attached");
 
 		    reader.onload = function(e) {
 		      preview.setAttribute('src', e.target.result);
-          console.log("s,sammd,as,aas,s,ad,asd,asdlkedlqdlqlqdlqksdlsd")
+          console.log("image change function")
           console.log(e.target.result)//image
 		    }
 
@@ -684,14 +695,11 @@ console.log("scripts attached");
       }
 
 
- 
-
       document.getElementById('heartBeatId').style.position = "absolute";
       document.getElementById('heartBeatId').style.left =  x +'px';
       document.getElementById('heartBeatId').style.top = y +'px';
 
       
-
       // setTimeout(colorChange, 550);
       setTimeout(function(){
       document.getElementById('heartBeatId').style.visibility = "hidden";
@@ -922,6 +930,7 @@ console.log("scripts attached");
    console.log(imgsrc.removeAttribute("src")) 
     imgsrc.setAttribute("src", "")
     imgsrc.setAttribute("id", "preview");
+
   })
 
 
@@ -939,7 +948,6 @@ console.log("scripts attached");
   layoutPrintButton.addEventListener('click', function(){
     console.log("hello from layout print button")
     window.print()
-
   })
  
 
@@ -970,7 +978,6 @@ console.log("scripts attached");
         
 
 
-
         if(document.body.contains(designButton)){
 				  console.log("design button from refresh is removed")
 	        designButton.remove()
@@ -983,10 +990,11 @@ console.log("scripts attached");
 
 
 
-        if(document.body.contains(document.getElementById("rotate-to-back-id"))){
+        if(document.body.contains(document.getElementById("rotate-to-back-id")) || document.body.contains(document.getElementById("rotate-to-front-id"))){
           console.log("design button from pick is removed")
+          console.log("rotate-to-back-id || rotate-to-front-id") 
 
-          designAndPrintPopUpRemove()
+          designAndPrintPopUpRemove();
 
           document.getElementById("rotate-to-back-id").remove();
           document.getElementById("rotate-to-front-id").remove();
@@ -1006,6 +1014,7 @@ console.log("scripts attached");
           }
           buttonText2.remove() 
         }
+
 
         if(document.body.contains(document.getElementById("ulDiv"))){
         	var liClass = document.querySelectorAll(".liClass");
@@ -1144,29 +1153,30 @@ console.log("scripts attached");
               // cardBackDiv2.style.cursor = 'none';//cusrsor doesnt move
             }
                 
-    
-                //add another print button for window .print
-            var buttonText8 = document.createTextNode("print back and front");
-            layoutPrintButton.setAttribute("id", "layoutPrintButtonId");
-            layoutPrintButton.appendChild(buttonText8);//to see front button
-            // document.body.appendChild(layoutPrintButton);
-
-            printButtonAndGoBackWrapper.appendChild(layoutPrintButton);
-            document.body.appendChild(printButtonAndGoBackWrapper)
-
-
 
 
 
             // add back button to go back to the pick cards
-
-            var buttonText9 = document.createTextNode("go back to main page");
+            var buttonText9 = document.createTextNode("ReDesign");
             goBackButton.setAttribute("id", "goBackButtonId");
             goBackButton.appendChild(buttonText9);//to see front button
             // document.body.appendChild(goBackButton);
 
 
+
+    
+            //add another print button for window .print
+            var buttonText8 = document.createTextNode("Print");
+            layoutPrintButton.setAttribute("id", "layoutPrintButtonId");
+            layoutPrintButton.appendChild(buttonText8);//to see front button
+            // document.body.appendChild(layoutPrintButton);
+            
             printButtonAndGoBackWrapper.appendChild(goBackButton);
+            document.body.appendChild(printButtonAndGoBackWrapper)
+
+
+
+            printButtonAndGoBackWrapper.appendChild(layoutPrintButton);
             document.body.appendChild(printButtonAndGoBackWrapper)
 
 
