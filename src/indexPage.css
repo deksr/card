@@ -5,6 +5,116 @@
 
 
 
+	
+
+
+
+
+
+
+/* Desktop Styles */
+@media only screen and (min-width: 768px) {
+
+	html {
+    height: 100%;
+  }
+
+
+
+	body {
+	  height: 100%;
+	  margin: 0;
+	  background-color:  #83d0c9;  
+	}
+
+
+	.logoDiv{
+		position: absolute;
+	  top: 20%;
+	  left: 31.5%
+	}
+
+
+	.logo{
+    font-family: 'Archivo Black', sans-serif;
+    color:white;
+	  font-size: 100px;
+	  position: relative;
+	  top: 70%;
+	  left: 36.5%;
+    z-index: 30;
+    height: auto;
+	}
+
+
+
+	.homePageLinkDiv{
+		position: absolute;
+	  left: 40%; 
+	  top: 36%;
+	  width: 600px;
+	}
+
+
+
+	.home-page-link{
+	  text-decoration:none;
+    font-family: 'Archivo Black', sans-serif;
+    color:#ffdb4d;
+	  font-size: 10em;
+	}
+
+
+
+	.cardIllustration{
+		width: 30%;
+    height: auto;
+	}
+
+
+
+	.clickStyle{
+		color: #ffdb4d;
+		text-decoration: none;
+	}
+
+
+
+	.clickStyle:hover{
+		background-color:#ffdb4d ;
+		color: white;
+		text-decoration: none;
+	}
+
+
+  .listDiv{
+    position: absolute;
+		top: 350px;
+		left: 43.5%;
+
+  }
+
+	.featureClass{
+		color: white;
+		font-family: 'Rajdhani';
+    display: inline;
+
+
+	}
+
+
+	.featureClass li{
+		list-style: none;
+		display: inline;
+		margin: 20px;
+	}
+
+}
+
+
+
+/*iphone*/
+@media screen and (min-width: 320px) {
 	html {
     height: 100%;
   }
@@ -19,27 +129,32 @@
 
 
 
+	.logoDiv{
+		position: absolute;
+	  top: 20%;
+	}
+
 	.logo{
     font-family: 'Archivo Black', sans-serif;
     color:white;
-	  font-size: 100px;
-	  position: absolute;
-	  top: 21.5%;
-	  left: 35.5%;
+	  font-size: 4em;
+	  margin: 6%;
     z-index: 30;
     height: auto;
 	}
 
+	.homePageLinkDiv{
+		position: absolute;
+	  top: 30%;
+	}
 
 
 	.home-page-link{
 	  text-decoration:none;
-	  position: absolute;
-	  top: 43%;
-	  left: 37%; 
+	  margin: 10%;
     font-family: 'Archivo Black', sans-serif;
     color:#ffdb4d;
-	  font-size: 20px;
+	  font-size: 1.7em;
 	  height: auto;
 	}
 
@@ -64,6 +179,36 @@
 		color: white;
 		text-decoration: none;
 	}
+
+	.listDiv{
+    position: absolute;
+		top: 350px;
+
+  }
+
+    
+
+	.featureClass{
+		color: white;
+		font-family: 'Rajdhani';
+		float: left;
+    display: inline;
+	}
+
+
+
+	.featureClass li{
+		margin: 20px;
+		list-style: none;
+		display: inline;
+
+	}
+}
+
+
+
+
+	
 
 
 
