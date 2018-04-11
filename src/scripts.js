@@ -752,6 +752,9 @@ console.log("scripts attached");
 
 
 
+
+  // after print function
+
   window.onafterprint = function(){
     console.log("Printing completed...");
     document.body.appendChild(layoutPrintButton)
