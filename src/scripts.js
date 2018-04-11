@@ -753,6 +753,20 @@ console.log("scripts attached");
 
 
 
+  // after print function
+
+  window.onafterprint = function(){
+    console.log("Printing completed...");
+    document.body.appendChild(layoutPrintButton)
+    document.body.appendChild(goBackButton)
+
+    printButtonAndGoBackWrapper.appendChild(goBackButton);
+    printButtonAndGoBackWrapper.appendChild(layoutPrintButton);
+  }
+ 
+
+
+
 
 
 
@@ -839,10 +853,7 @@ console.log("scripts attached");
     li.appendChild(inputTagOne);
 
 
-    // draggablePopUp()
 
-
-   // document.body.appendChild(ul); //this create elements dynamically
   // ........................................................
 
     var removeButton = document.createElement("button");
@@ -946,12 +957,26 @@ console.log("scripts attached");
 
   
   layoutPrintButton.addEventListener('click', function(){
-    console.log("hello from layout print button")
+    console.log("hello from layout print button");
+
+
+
+
+
     layoutPrintButton.remove();
     goBackButton.remove();
-    window.print()
+    window.print();
+    
+
+
+
   })
- 
+
+
+
+
+
+
 
     
   
@@ -1028,7 +1053,7 @@ console.log("scripts attached");
         	document.getElementById("ulDiv").remove();   
         }
 
-        //if when pick button is pressed, backside of the square card shows, then replace it with the front side. if the class sun is present then remove sun
+    
 
         if(document.body.contains(document.querySelector(".sun"))){
           console.log("sun is presnt");
@@ -1104,13 +1129,6 @@ console.log("scripts attached");
           }
         }
 
-
-
-        // if(document.body.contains(roundMainDiv)){
-        //   printCriteria()
-        //   // squareMainDiv.remove()
-        // }
-        // .........................................
 
 
 
@@ -1212,12 +1230,7 @@ console.log("scripts attached");
 // ********************************************************
 	
 
-  if(document.getElementById("attachCardsDiv")){
-		console.log("hello")
-	}
-	else{
-		console.log("wtf")
-	}
+
 
 
   
