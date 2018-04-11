@@ -947,6 +947,8 @@ console.log("scripts attached");
   
   layoutPrintButton.addEventListener('click', function(){
     console.log("hello from layout print button")
+    layoutPrintButton.remove();
+    goBackButton.remove();
     window.print()
   })
  
