@@ -752,6 +752,17 @@ console.log("scripts attached");
 
 
 
+  window.onafterprint = function(){
+    console.log("Printing completed...");
+    document.body.appendChild(layoutPrintButton)
+    document.body.appendChild(goBackButton)
+
+    printButtonAndGoBackWrapper.appendChild(goBackButton);
+    printButtonAndGoBackWrapper.appendChild(layoutPrintButton);
+  }
+ 
+
+
 
 
 
@@ -943,12 +954,26 @@ console.log("scripts attached");
 
   
   layoutPrintButton.addEventListener('click', function(){
-    console.log("hello from layout print button")
+    console.log("hello from layout print button");
+
+
+
+
+
     layoutPrintButton.remove();
     goBackButton.remove();
-    window.print()
+    window.print();
+    
+
+
+
   })
- 
+
+
+
+
+
+
 
     
   
